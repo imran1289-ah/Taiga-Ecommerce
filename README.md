@@ -1,1 +1,1 @@
-# team_Taiga-soen341project2022
+# Taiga Online Shopping Store
