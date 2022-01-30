@@ -19,6 +19,21 @@ Since 2020, the world has been hit with a global pandemic, known as Covid-19. Th
 - Siming Shen (GitHub: SimingShen321)
 - Zi Hao Tan (GitHub: ZiHao-Tan)
 
+## Roles :computer:
+
+Frontend:
+- Siming Shen
+
+Backend:
+- Matthew Faigan
+- Sabari Krishna Orakkan
+
+Full Stack:
+- Imran Ahmed
+- Julian Aloise
+- Michael Djabauri
+- Zi Hao Tan
+
 ## Technologies 	:writing_hand:
 - Javascript
 - Node Js
