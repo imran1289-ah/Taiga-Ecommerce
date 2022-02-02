@@ -1,0 +1,54 @@
+Database objects
+- User
+    * Email, name, password, address, saved credit card #, user type (customer, seller, admin)
+- Products
+    * Name, description, price, image (binary or base64 encoded), stock, categories
+- Cart entry
+    * User ID, product ID, quantity
+- Order history
+    * User ID, array of product IDs, date of order, status (pending/shipped)
+    
+Using MongoDB
+
+API
+ /users
+    - /login: login to existing account
+        POST {email, password}
+    - /register: create new account
+        POST {email, password, user type}
+    - /ban: admin only
+        POST {user id, ban/unban (true/false?)}
+    - /account: manage account details for logged in user
+        UPDATE {new credit card #, new address, new password, new email}
+    - /orderhistory: get past orders
+        GET
+        Returns [{date, [product]}] (array of date and array of product)
+    - /sellerhistory: get sale history for all of user's products, seller only
+        GET
+        Returns [{product, total quantity sold}]
+ /products
+    - /create: create new product listing as seller or admin
+        POST {name, description, price, image, initial stock, categories}
+    - /search: filter products
+        GET with query parameters: category, max price, min price, part of name
+        Returns [product] containing same details as DB
+    - /delete: remove product listing as seller or admin
+        DELETE {id}
+    - /update: update existing product listing
+        UPDATE {name, desc, price, image, stock, categories}
+ /cart
+    - /add: add to cart for logged in user
+        POST {id, quantity}
+    - /remove: remove from cart for logged in user
+        DELETE {id of cart item}
+    - /list
+        GET
+        Returns [cart item] containing same details as DB
+ /checkout: "processes payment", empties cart, creates record of transaction in order history
+    POST {user id, credit card #, address}
+ /admin
+    - /orders: list all orders, admin only
+        GET with optional query param ?userid="" to filter by user, ?shipped=true or ?shipped=false to filter by shipped status
+        Returns [order history] (filtered as needed)
+    - /dispatch: sets pending order status to shipped, admin only
+        UPDATE {order ID, shipped status}
