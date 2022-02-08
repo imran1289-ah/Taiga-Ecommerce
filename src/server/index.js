@@ -1,12 +1,18 @@
 const express = require('express');
-// react runs on port 3000 by default
+const cors = require('cors');
+
+const mongoose = require('mongoose');
+
+// React runs on port 3000 by default
 const port = 9000;
 const app = express();
 
-// for this to work you might need to run 
-var cors = require("cors");
-
+// Add Express.js middleware
 app.use(cors());
+
+mongoose.connect('mongodb://localhost:27017/taiga');
+const connection = mongoose.connection;
+
 app.get('/', (req, res) => {
     res.send('Hello world from server!');
 });
@@ -15,5 +21,5 @@ app.get('/testAPI', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log("Taiga server listening on port " + port);
+    console.log('Taiga server listening on port ' + port);
 });
