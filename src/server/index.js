@@ -4,8 +4,6 @@ const port = 9000;
 const app = express();
 
 // for this to work you might need to run 
-// $npm install --save cors
-// from /server
 var cors = require("cors");
 
 app.use(cors());
