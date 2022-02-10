@@ -1,0 +1,32 @@
+.column_top {
+    float: left;
+    width: 33.33%;
+    padding: 30px;
+    
+}
+.column_top img{
+    height:350px;
+    width: 350px;
+}
+
+.column_low {
+    float: left;
+    width: 33.33%;
+    padding: 30px;
+    
+}
+.column_low img{
+    height:350px;
+    width: 350px;
+}
+
+
+
+
+
+
+
+
+
+
+

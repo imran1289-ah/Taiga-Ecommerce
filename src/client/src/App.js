@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SlideShow from './SlideShow';
+import "./App.css";
+import Types from './Types';
+
+
+
 
 class App extends Component {
 
@@ -23,9 +29,14 @@ class App extends Component {
   render() {
     return(
       <div className="App">
-        <p>Hello world from client!</p>
+        {/*
         <p className="App-intro">{this.state.apiResponse}</p>
+        */}
         <Header/>
+        <SlideShow/>
+        <br></br>
+        <Types/>
+        
       </div>
     );
   }
