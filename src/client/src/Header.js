@@ -17,10 +17,10 @@ function Header() {
     <Navbar bg="danger" expand="lg" variant="dark">
   <Container fluid>
     <Navbar.Brand href="#">
+   
+    Taiga
       
-    
-      
-      Taiga Online Store</Navbar.Brand>
+      </Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
     

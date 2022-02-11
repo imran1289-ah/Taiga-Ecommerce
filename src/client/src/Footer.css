@@ -1,0 +1,22 @@
+.footer{
+    background-color:#F93154;
+    color:white;
+    padding-top:3em;
+    position:relative;
+    bottom:0;
+    width:100%;
+}
+
+img {
+    /* height:40px; */
+    width: 40px;
+    padding:2px;
+}
+
+.socialmedias ul > li{
+    display:inline-block;
+
+}
+
+
+

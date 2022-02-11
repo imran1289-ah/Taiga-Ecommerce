@@ -47,5 +47,5 @@ export default function SlideShow() {
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
-  );
+  )
 }

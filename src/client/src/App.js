@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SlideShow from './SlideShow';
 import "./App.css";
 import Types from './Types';
+import Footer from './Footer';
 
 
 
@@ -35,7 +36,12 @@ class App extends Component {
         <Header/>
         <SlideShow/>
         <br></br>
-        <Types/>
+        <Types>
+
+        </Types>
+        <Footer></Footer>
+        
+        
         
       </div>
     );
