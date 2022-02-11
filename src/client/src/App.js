@@ -38,7 +38,7 @@ class App extends Component {
         <Routes>
           <Route path="/" element={ 
             /*<p className="App-intro">{this.state.apiResponse}</p>*/
-            <><Header/><SlideShow/></>
+            <><Header/><SlideShow/><Footer/></>
         } />
           <Route path="/login" element={<><Header/><Login/></>} />
         </Routes>
