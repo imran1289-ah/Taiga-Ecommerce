@@ -30,7 +30,7 @@ function Header() {
         navbarScroll
       >
         
-        <Nav.Link href="#action1">Home</Nav.Link>
+        <Nav.Link href="/">Home</Nav.Link>
         <NavDropdown title="Shop" id="navbarScrollingDropdown">
           <NavDropdown.Item href="#action3">Electronics</NavDropdown.Item>
           <NavDropdown.Item href="#action4">Clothes</NavDropdown.Item>
@@ -39,7 +39,7 @@ function Header() {
           <NavDropdown.Item href="#action7">Food</NavDropdown.Item>
           <NavDropdown.Item href="#action7">Toys</NavDropdown.Item>
         </NavDropdown>
-        <Nav.Link href="#action2">Login</Nav.Link>
+        <Nav.Link href="/Login">Login</Nav.Link>
         
         <Nav.Link href="#action3">
           Manage Profile

@@ -6,8 +6,13 @@ import "./App.css";
 import Types from './Types';
 import Footer from './Footer';
 
-
-
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import Login from './Login';
 
 class App extends Component {
 
@@ -28,22 +33,17 @@ class App extends Component {
   }
 
   render() {
-    return(
-      <div className="App">
-        {/*
-        <p className="App-intro">{this.state.apiResponse}</p>
-        */}
-        <Header/>
-        <SlideShow/>
-        <br></br>
-        <Types>
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={ 
+            /*<p className="App-intro">{this.state.apiResponse}</p>*/
+            <><Header/><SlideShow/></>
+        } />
+          <Route path="/login" element={<><Header/><Login/></>} />
+        </Routes>
+      </BrowserRouter>
 
-        </Types>
-        <Footer></Footer>
-        
-        
-        
-      </div>
     );
   }
 }
