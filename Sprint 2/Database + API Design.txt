@@ -15,10 +15,11 @@ API
     - /login: login to existing account
         POST {email, password}
     - /register: create new account
-        POST {email, password, user type}
+        POST {email, name, password, user type}
     - /ban: admin only
         POST {user id, ban/unban (true/false?)}
     - /account: manage account details for logged in user
+        GET: Returns {email, name, user type, CC#, address}
         UPDATE {new credit card #, new address, new password, new email}
     - /orderhistory: get past orders
         GET
