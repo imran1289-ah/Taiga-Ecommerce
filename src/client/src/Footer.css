@@ -1,0 +1,43 @@
+.footer{
+    background-color:#198754;
+    color:white;
+    padding-top:20px;
+    position:relative;
+    bottom:0;
+    width:100%;
+    
+    
+    
+}
+
+.socialmedias img{
+    height:40px;
+    width: 40px;
+    padding:2px;
+}
+
+.socialmedias ul > li{
+    display:inline-block;
+    padding-right: 5px;
+    padding-left:5px;
+
+}
+
+.row{
+    text-align: center;
+    
+}
+
+.container{
+    margin:auto;
+    
+}
+
+.list-unstyled li{
+    padding:4px;
+}
+
+
+
+
+

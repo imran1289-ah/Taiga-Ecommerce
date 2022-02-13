@@ -10,31 +10,54 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
+
 function Header() {  
   return (
-    <Navbar bg="light" expand="lg">
+    
+    <Navbar bg="success" expand="lg" variant="dark">
   <Container fluid>
-    <Navbar.Brand href="#">Taiga Online Store</Navbar.Brand>
+    <Navbar.Brand href="#">
+    <div className="logo">
+      <img src="http://assets.stickpng.com/images/58482ca9cef1014c0b5e4a46.png" alt="logo"></img>
+    </div>
+      
+      </Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
+    
       <Nav
         className="me-auto my-2 my-lg-0"
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link href="#action1">Home</Nav.Link>
-        <Nav.Link href="#action2">Link</Nav.Link>
-        <NavDropdown title="Link" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">
-            Something else here
-          </NavDropdown.Item>
-        </NavDropdown>
-        <Nav.Link href="#" disabled>
-          Link
+        
+     
+        <Nav.Link href="/"><button class="btn btn-outline-light my-2 my-sm-0" type="submit">Home</button></Nav.Link>
+        
+        {/* <NavDropdown title="Shop" id="navbarScrollingDropdown">
+          <NavDropdown.Item href="#action3">Electronics</NavDropdown.Item>
+          <NavDropdown.Item href="#action4">Clothes</NavDropdown.Item>
+          <NavDropdown.Item href="#action5">Furnitures</NavDropdown.Item>
+          <NavDropdown.Item href="#action6">Books</NavDropdown.Item>
+          <NavDropdown.Item href="#action7">Food</NavDropdown.Item>
+          <NavDropdown.Item href="#action7">Toys</NavDropdown.Item>
+        </NavDropdown> */}
+        
+        <Nav.Link href="/Login"><button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button></Nav.Link>
+        
+        <Nav.Link href="#action3">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Manage Profile</button>
         </Nav.Link>
+        <Nav.Link href="#action4">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Cart</button> 
+        </Nav.Link>
+
+        
+      
+    
+       
+        
+        
       </Nav>
       <Form className="d-flex">
         <FormControl
@@ -43,11 +66,15 @@ function Header() {
           className="me-2"
           aria-label="Search"
         />
-        <Button variant="outline-success">Search</Button>
+        <Button variant="outline-light">Search</Button>
       </Form>
-    </Navbar.Collapse>
+      
+      
+      
+      </Navbar.Collapse>
   </Container>
 </Navbar>
+
   );
 }
 
