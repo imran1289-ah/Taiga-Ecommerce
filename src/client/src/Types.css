@@ -20,6 +20,18 @@
     width: 350px;
 }
 
+@media screen and (max-width: 768px) {
+    .column_top img{
+        height:400px;
+        width: 400px;
+    }
+
+    .column_low img{
+        height:400px;
+        width: 400px;
+    }
+  }
+
 
 
 
