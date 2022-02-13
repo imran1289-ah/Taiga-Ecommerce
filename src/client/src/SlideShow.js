@@ -8,7 +8,7 @@ export default function SlideShow() {
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="https://besthqwallpapers.com/Uploads/10-11-2018/71328/thumb2-4k-samsung-galaxy-a9-smartphones-2018-mobile-phones.jpg"
+      src="https://s.yimg.com/uu/api/res/1.2/iIiAuB4i2JjrOpjyouAPhA--~B/aD0xNTUwO3c9MjQwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-04/18c7cb00-9829-11eb-9f9f-11c3d682f8cf.cf.jpg"
       alt="Electronics"
     />
     <Carousel.Caption>

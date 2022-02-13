@@ -17,8 +17,9 @@ function Header() {
     <Navbar bg="success" expand="lg" variant="dark">
   <Container fluid>
     <Navbar.Brand href="#">
-   
-    Taiga
+    <div className="logo">
+      <img src="http://assets.stickpng.com/images/58482ca9cef1014c0b5e4a46.png" alt="logo"></img>
+    </div>
       
       </Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
@@ -30,25 +31,43 @@ function Header() {
         navbarScroll
       >
         
-        <Nav.Link href="/">Home</Nav.Link>
-        <NavDropdown title="Shop" id="navbarScrollingDropdown">
+     
+        <Nav.Link href="/"><button class="btn btn-outline-light my-2 my-sm-0" type="submit">Home</button></Nav.Link>
+        
+        {/* <NavDropdown title="Shop" id="navbarScrollingDropdown">
           <NavDropdown.Item href="#action3">Electronics</NavDropdown.Item>
           <NavDropdown.Item href="#action4">Clothes</NavDropdown.Item>
           <NavDropdown.Item href="#action5">Furnitures</NavDropdown.Item>
           <NavDropdown.Item href="#action6">Books</NavDropdown.Item>
           <NavDropdown.Item href="#action7">Food</NavDropdown.Item>
           <NavDropdown.Item href="#action7">Toys</NavDropdown.Item>
-        </NavDropdown>
-        <Nav.Link href="/Login">Login</Nav.Link>
+        </NavDropdown> */}
+        
+        <Nav.Link href="/Login"><button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button></Nav.Link>
         
         <Nav.Link href="#action3">
-          Manage Profile
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Manage Profile</button>
         </Nav.Link>
         <Nav.Link href="#action4">
-          Cart
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Cart</button> 
         </Nav.Link>
+
+        
+      
+    
+       
+        
         
       </Nav>
+      <Form className="d-flex">
+        <FormControl
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button variant="outline-light">Search</Button>
+      </Form>
       
       
       

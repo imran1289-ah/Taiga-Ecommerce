@@ -1,24 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Types.css';
 import {Container} from 'react-bootstrap';
 import {Row }from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
+import Aos from "aos";
+import "aos/dist/aos.css"
 
 export default function Types() {
-  return (
+    useEffect(() => {
+        Aos.init({duration: 1000})
+    }, [])
+  
+    return (
     <>
 
     <Container>
     
         <Row>
         <Col sm><div className ="column_top">
-            <img src= "https://media.cnn.com/api/v1/images/stellar/prod/210922153639-best-smartphones-lead.jpg?q=x_0,y_54,h_2082,w_3701,c_crop/w_800" alt="Electronics"  ></img>
+            <img data-aos="fade" src= "https://media.wired.com/photos/5dfc14fe0c5fac0008be12bb/1:1/w_803,h_803,c_limit/Gear-Beats-Solo-Pro-gold-SOURCE-Beats.jpg" alt="Electronics"  ></img>
         </div></Col>
         <Col sm><div className ="column_top">
-            <img src= "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2020%2F04%2F06%2Fnike-9.jpg" alt="Clothes" ></img>
+            <img data-aos="fade" src= "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2020%2F04%2F06%2Fnike-9.jpg" alt="Clothes" ></img>
         </div></Col>
         <Col sm><div className ="column_top">
-            <img src= "https://st.hzcdn.com/simgs/pictures/bedrooms/miami-beach-modern-condo-kay-story-interiors-img~dcc15d8c0ab11ed0_14-9483-1-e35efec.jpg" alt="Furnitures" ></img>
+            <img data-aos="fade" src= "https://st.hzcdn.com/simgs/pictures/bedrooms/miami-beach-modern-condo-kay-story-interiors-img~dcc15d8c0ab11ed0_14-9483-1-e35efec.jpg" alt="Furnitures" ></img>
         </div> </Col>
     </Row>
     </Container>
@@ -26,14 +32,14 @@ export default function Types() {
     <Container>
     
         <Row>
-        <Col sm><div className ="column_low">
-            <img src= "https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg" alt="Books"  ></img>
+        <Col sm><div data-aos="fade" className ="column_low">
+            <img src= "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/romance-novels-1611696322.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*" alt="Books"  ></img>
         </div></Col>
-        <Col sm><div className ="column_low">
-            <img src= "https://media.cntraveler.com/photos/5e73088a1185400008f5b39c/master/pass/TR0420_WOM_MontrealChefs02.jpg" alt="Food" ></img>
+        <Col sm><div data-aos="fade" className ="column_low">
+            <img src= "https://www.moneycrashers.com/wp-content/uploads/2011/12/paper-bag-filled-with-groceries-produce-bread-milk.jpg" alt="Grocery" ></img>
         </div></Col>
-        <Col sm><div className ="column_low">
-            <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHgGNDsYPPosaKaU3twizgd0Q3fdumNACi5g&usqp=CAU" alt="Toys" ></img>
+        <Col sm><div data-aos="fade" className ="column_low">
+            <img src= "https://images.theconversation.com/files/433882/original/file-20211125-1695-145t7be.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop" alt="Toys" ></img>
         </div> </Col>
     </Row>
     </Container>

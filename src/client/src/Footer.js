@@ -1,5 +1,6 @@
 import React from 'react'
 import './Footer.css'
+import Button from 'react-bootstrap/Button';
 
 export default function Footer() {
   return (
@@ -15,7 +16,7 @@ export default function Footer() {
                 <ul className="list-unstyled">
                     <li>Careers</li>
                     <li>Mission</li>
-                    <li>Founder</li>
+                    <li>Founders</li>
 
                     
                 </ul>
