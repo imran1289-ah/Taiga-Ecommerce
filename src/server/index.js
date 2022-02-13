@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -15,18 +15,19 @@ const app = express();
 app.use(cors());
 
 // Initialize the database connection
-mongoose.connect('mongodb://localhost:27017/taiga');
-const connection = mongoose.connection;
+const mongoUrl = 'mongodb://localhost:27017/taiga';
+mongoose.connect(mongoUrl);
 
 const UserModel = require('./models/user');
 
 // Set up connect-mongo and express-session to track user login sessions
-const sessionStore = new MongoStore({ mongooseConnection: connection, collection: 'sessions' });
 app.use(session({
     secret: 'devSecret', // Used to generate unique session authentication hashes, change to random value before deployment
     resave: false,
     saveUninitialized: true,
-    store: sessionStore
+    store: MongoStore.create({
+        mongoUrl: mongoUrl
+    })
 }));
 
 // Function to validate a password during login requests
