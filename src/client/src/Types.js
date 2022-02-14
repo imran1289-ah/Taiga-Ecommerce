@@ -19,9 +19,9 @@ export default function Types() {
     
         <Row>
         <Col sm><div className ="column_top">
-           <Link to ="/Electronics_Types">
-                <img data-aos="fade" src= "https://media.wired.com/photos/5dfc14fe0c5fac0008be12bb/1:1/w_803,h_803,c_limit/Gear-Beats-Solo-Pro-gold-SOURCE-Beats.jpg" alt="Electronics"  ></img>
-            </Link> 
+            <Link to ="/ElectronicsTypes">
+                <img data-aos="fade" src= "https://media.wired.com/photos/5dfc14fe0c5fac0008be12bb/1:1/w_803,h_803,c_limit/Gear-Beats-Solo-Pro-gold-SOURCE-Beats.jpg" alt="Electronics"  ></img>         
+             </Link> 
         </div></Col>
         <Col sm><div className ="column_top">
             <img data-aos="fade" src= "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2020%2F04%2F06%2Fnike-9.jpg" alt="Clothes" ></img>
