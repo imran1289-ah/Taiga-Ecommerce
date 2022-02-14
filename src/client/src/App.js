@@ -13,6 +13,7 @@ import {
   Link
 } from "react-router-dom";
 import Login from './Login';
+import Electronics_Types from './Electronics_Types';
 
 class App extends Component {
 
@@ -41,6 +42,7 @@ class App extends Component {
             <><Header/><SlideShow/><Types/><Footer/></>
         } />
           <Route path="/login" element={<><Header/><Login/></>} />
+          <Route path="/Electronics_Types" element={<><Header/><Electronics_Types/><Footer/></>}></Route>
         </Routes>
       </BrowserRouter>
 
