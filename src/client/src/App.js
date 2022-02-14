@@ -15,6 +15,7 @@ import {
 import Login from './Login';
 import Electronics_Types from './ElectronicsTypes';
 import ElectronicsTypes from './ElectronicsTypes';
+import ClothesTypes from './ClothesTypes';
 
 class App extends Component {
 
@@ -44,6 +45,7 @@ class App extends Component {
         } />
           <Route path="/login" element={<><Header/><Login/></>} />
           <Route path="/ElectronicsTypes" element={<><Header/><ElectronicsTypes/><Footer/></>}></Route>
+          <Route path="/ClothesTypes" element={<><Header/><ClothesTypes/><Footer/></>}></Route>
         </Routes>
       </BrowserRouter>
 

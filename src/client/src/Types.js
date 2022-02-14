@@ -24,7 +24,9 @@ export default function Types() {
              </Link> 
         </div></Col>
         <Col sm><div className ="column_top">
-            <img data-aos="fade" src= "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2020%2F04%2F06%2Fnike-9.jpg" alt="Clothes" ></img>
+            <Link to ="/ClothesTypes">
+                <img data-aos="fade" src= "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2020%2F04%2F06%2Fnike-9.jpg" alt="Clothes" ></img>
+            </Link>
         </div></Col>
         <Col sm><div className ="column_top">
             <img data-aos="fade" src= "https://st.hzcdn.com/simgs/pictures/bedrooms/miami-beach-modern-condo-kay-story-interiors-img~dcc15d8c0ab11ed0_14-9483-1-e35efec.jpg" alt="Furnitures" ></img>

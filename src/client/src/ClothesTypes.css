@@ -1,0 +1,22 @@
+.clothes_types img{
+    height:500px;
+    width: 600px;
+    padding:30px;
+}
+
+.clothes_types h3{
+    color:white;
+}
+
+.clothes_types p{
+    color:white;
+}
+
+@media screen and (max-width: 768px) {
+    .clothes_types img{
+        height:420px;
+        width:470px;
+        padding:30px;
+    }
+    
+  }
