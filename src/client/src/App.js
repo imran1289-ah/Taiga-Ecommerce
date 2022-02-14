@@ -53,7 +53,7 @@ class App extends Component {
           <Route path="/FurnitureTypes" element={<><Header/><FurnitureTypes/><Footer/></>}></Route>
           <Route path="/BooksTypes" element={<><Header/><BooksTypes/><Footer/></>}></Route>
           <Route path="/GroceryTypes" element={<><Header/><GroceryTypes/><Footer/></>}></Route>
-          <Route path="/ToyTypes" element={<><Header/><ToysTypes/><Footer/></>}></Route>
+          <Route path="/ToysTypes" element={<><Header/><ToysTypes/><Footer/></>}></Route>
         </Routes>
       </BrowserRouter>
 
