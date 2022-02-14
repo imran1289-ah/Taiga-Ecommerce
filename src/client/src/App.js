@@ -5,6 +5,8 @@ import SlideShow from './SlideShow';
 import "./App.css";
 import Types from './Types';
 import Footer from './Footer';
+import FurnitureTypes from './FurnitureTypes';
+import BooksTypes from './BooksTypes';
 
 import {
   BrowserRouter,
@@ -46,6 +48,8 @@ class App extends Component {
           <Route path="/login" element={<><Header/><Login/></>} />
           <Route path="/ElectronicsTypes" element={<><Header/><ElectronicsTypes/><Footer/></>}></Route>
           <Route path="/ClothesTypes" element={<><Header/><ClothesTypes/><Footer/></>}></Route>
+          <Route path="/FurnitureTypes" element={<><Header/><FurnitureTypes/><Footer/></>}></Route>
+          <Route path="/BooksTypes" element={<><Header/><BooksTypes/><Footer/></>}></Route>
         </Routes>
       </BrowserRouter>
 

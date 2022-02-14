@@ -29,8 +29,10 @@ export default function Types() {
             </Link>
         </div></Col>
         <Col sm><div className ="column_top">
+            <Link to="/FurnitureTypes">
             <img data-aos="fade" src= "https://st.hzcdn.com/simgs/pictures/bedrooms/miami-beach-modern-condo-kay-story-interiors-img~dcc15d8c0ab11ed0_14-9483-1-e35efec.jpg" alt="Furnitures" ></img>
-        </div> </Col>
+            </Link>
+        </div>  </Col>
     </Row>
     </Container>
 
@@ -38,7 +40,9 @@ export default function Types() {
     
         <Row>
         <Col sm><div data-aos="fade" className ="column_low">
-            <img src= "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/romance-novels-1611696322.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*" alt="Books"  ></img>
+            <Link to="/BooksTypes">
+            <img src= "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/romance-novels-1611696322.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*" alt="Books"  ></img>  
+            </Link> 
         </div></Col>
         <Col sm><div data-aos="fade" className ="column_low">
             <img src= "https://www.moneycrashers.com/wp-content/uploads/2011/12/paper-bag-filled-with-groceries-produce-bread-milk.jpg" alt="Grocery" ></img>

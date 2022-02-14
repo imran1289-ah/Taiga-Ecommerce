@@ -1,0 +1,23 @@
+.furniture_types img{
+    height:500px;
+    width:635px;
+    padding:30px;
+    
+}
+
+.furniture_types h3{
+    color:white;
+}
+
+.furniture_types p{
+    color:white;
+}
+
+@media screen and (max-width: 768px) {
+    .furniture_types img{
+        height:420px;
+        width:470px;
+        padding:30px;
+    }
+    
+  }

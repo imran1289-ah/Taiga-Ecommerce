@@ -1,0 +1,22 @@
+.books_types img{
+    height:500px;
+    width:600px;
+    padding:30px;
+}
+
+.books_types h3{
+    color:white;
+}
+
+.books_types p{
+    color:white;
+}
+
+@media screen and (max-width: 768px) {
+    .books_types img{
+        height:420px;
+        width:470px;
+        padding:30px;
+    }
+    
+  }
