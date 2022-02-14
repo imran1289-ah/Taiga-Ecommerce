@@ -7,6 +7,7 @@ import Types from './Types';
 import Footer from './Footer';
 import FurnitureTypes from './FurnitureTypes';
 import BooksTypes from './BooksTypes';
+import GroceryTypes from './GroceryTypes';
 
 import {
   BrowserRouter,
@@ -50,6 +51,7 @@ class App extends Component {
           <Route path="/ClothesTypes" element={<><Header/><ClothesTypes/><Footer/></>}></Route>
           <Route path="/FurnitureTypes" element={<><Header/><FurnitureTypes/><Footer/></>}></Route>
           <Route path="/BooksTypes" element={<><Header/><BooksTypes/><Footer/></>}></Route>
+          <Route path="/GroceryTypes" element={<><Header/><GroceryTypes/><Footer/></>}></Route>
         </Routes>
       </BrowserRouter>
 

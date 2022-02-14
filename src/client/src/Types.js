@@ -45,7 +45,9 @@ export default function Types() {
             </Link> 
         </div></Col>
         <Col sm><div data-aos="fade" className ="column_low">
+            <Link to="/GroceryTypes">
             <img src= "https://www.moneycrashers.com/wp-content/uploads/2011/12/paper-bag-filled-with-groceries-produce-bread-milk.jpg" alt="Grocery" ></img>
+            </Link>        
         </div></Col>
         <Col sm><div data-aos="fade" className ="column_low">
             <img src= "https://images.theconversation.com/files/433882/original/file-20211125-1695-145t7be.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop" alt="Toys" ></img>
