@@ -36,16 +36,59 @@ export default function SlideShow() {
     <img
       className="d-block w-100"
       src="https://3z6mv8219w2s2w196j1dkzga-wpengine.netdna-ssl.com/wp-content/uploads/2021/07/Rental-Fashion-Causes-More-Emissions-Than-Throwing-Clothes-Away.jpg"
-      alt="Clothes"
+      alt="Books"
     />
 
     <Carousel.Caption>
     <div className="text">
       <h3>Shop Clothes</h3>
-      <p>Get the best quality clothes here at Taiga</p>
+      <p>Shop for Clothes</p>
       </div>
     </Carousel.Caption>
   </Carousel.Item>
+
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://wallpaperbat.com/img/317478-the-books-of-college-libraries-are-turning-into-wallpaper.jpg"
+      alt="Books"
+    />
+    <Carousel.Caption>
+      <div className="text">
+      <h3>Shop Books</h3>
+      <p>Shop for the newest realease of books here at Taiga!</p>
+      </div>
+    </Carousel.Caption>
+  </Carousel.Item>
+
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_518504426_2000196920009280941_319976.jpg"
+      alt="Grocery"
+    />
+    <Carousel.Caption>
+      <div className="text">
+      <h3>Shop Grocery</h3>
+      <p>Get your grocery here at Taiga</p>
+      </div>
+    </Carousel.Caption>
+  </Carousel.Item>
+
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pieces-of-lego-displayed-during-the-exhibition-at-alexandra-news-photo-1586272389.jpg"
+      alt="Toys"
+    />
+    <Carousel.Caption>
+      <div className="text">
+      <h3>Shop Toys</h3>
+      <p>Get the best gifts for your kids</p>
+      </div>
+    </Carousel.Caption>
+  </Carousel.Item>
+
 </Carousel>
   )
 }
