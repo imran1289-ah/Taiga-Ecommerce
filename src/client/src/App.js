@@ -25,6 +25,7 @@ import MainVegetablesContent from './MainVegetablesContent';
 import MainSnacksContent from './MainSnacksContent';
 import MainBoyToysContent from './MainBoyToysContent';
 import MainGirlToysContent from './MainGirlToysContent';
+import Electronicslist from './Electronicslist';
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Login from './Login';
@@ -80,6 +81,7 @@ class App extends Component {
               <>
                 <Header />
                 {/* <ElectronicsTypes /> */}
+                <Electronicslist/>
                 <Footer />
               </>
             }

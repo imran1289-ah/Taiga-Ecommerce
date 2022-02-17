@@ -24,12 +24,14 @@ app.listen(port, () => {
     console.log('Taiga server listening on port ' + port);
 });
 
+
+
 //Api endpoint for products
 app.get('/products/search', (req, res) => {
-    res.send({
-            "products":
-            [
-        
+    res.send(
+      {
+        "products" :
+        [
             {
                 name: "Xbox Series S Console",
                 description : "Combining speed and performance, the Xbox Series S console lets you play games your way. This all-digital gaming powerhouse features a custom 512GB SSD for fast gameplay and reduced load times.",
@@ -583,9 +585,11 @@ app.get('/products/search', (req, res) => {
                 image: './images/92.jpg',
                 stock: "10",
                 categories: 'Toys'
-              },
+              }
 
-            ]
+        ]
+
+            
               
               
             
