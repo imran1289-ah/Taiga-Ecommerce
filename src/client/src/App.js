@@ -79,7 +79,7 @@ class App extends Component {
             element={
               <>
                 <Header />
-                <ElectronicsTypes />
+                {/* <ElectronicsTypes /> */}
                 <Footer />
               </>
             }
