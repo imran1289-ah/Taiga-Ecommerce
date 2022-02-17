@@ -7,7 +7,7 @@ var ProductsSchema = new Schema({
     description: {type: String, required: true},
     price: {type: Number, required: true},
     image: {data: Buffer, content: String},
-    stock: {String, required: true},
+    stock: {type: Number, required: true},
     categories: String,
 });
 
