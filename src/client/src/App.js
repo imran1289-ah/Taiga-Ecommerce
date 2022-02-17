@@ -5,15 +5,13 @@ import SlideShow from './SlideShow';
 import "./App.css";
 import Types from './Types';
 import Footer from './Footer';
-
+import Login from './Login';
 import {
   BrowserRouter,
   Routes,
   Route,
   Link
 } from "react-router-dom";
-import Login from './Login';
-
 class App extends Component {
 
   constructor(props) {
