@@ -29,8 +29,7 @@ app.listen(port, () => {
 //Api endpoint for products
 app.get('/products/search', (req, res) => {
     res.send(
-      {
-        "products" :
+      
         [
             {
                 name: "Xbox Series S Console",
@@ -587,13 +586,13 @@ app.get('/products/search', (req, res) => {
                 categories: 'Toys'
               }
 
-        ]
+        
 
             
               
               
             
         
-    })
+    ])
 });
 

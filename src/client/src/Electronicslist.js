@@ -2,35 +2,30 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 class Electronicslist extends Component {
+  
   constructor(props) {
     super(props)
   
     this.state = {
-       posts: []
+       products: []
     }
   }
 
   componentDidMount(){
     axios.get("http://localhost:9000/products/search")
-      .then(response => {
-        console.log(response)
-        this.setState({posts: response.data})
-      })
-      .catch(error => {
-        console.log(error)
-      })
+      .then(response => {console.log(response)})
+      .catch(error => {console.log(error)})
   }
   
   render() {
-    const {posts} = this.state
+    const {products} = this.state
+
     return (
       <div>
-        Electronicslist
-      {
-        posts.length ?
-        posts.map(post => <div key={post.categories}>{post.name}</div>) :
-        null
-      }
+      
+        
+        
+        
       </div>
     )
   }
