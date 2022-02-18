@@ -3,18 +3,15 @@ import axios from 'axios'
 
 class Electronicslist extends Component {
   
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       products: []
-    }
+  state = {
+    products : [],
   }
 
   componentDidMount(){
-    axios.get("http://localhost:9000/products/search")
-      .then(response => {console.log(response)})
-      .catch(error => {console.log(error)})
+    axios.get("http://localhost:9000/products/search?categories=Electronics")
+      .then(response => {
+        console.log(response);
+        this.setState({products: response.data})})
   }
   
   render() {
@@ -22,7 +19,19 @@ class Electronicslist extends Component {
 
     return (
       <div>
-      
+          
+          {
+            products.map(product => 
+                
+              <div>
+                {product.name}
+                  
+              
+              </div>
+                 
+                
+              )
+          }
         
         
         

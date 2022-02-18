@@ -400,7 +400,6 @@ app.get('/products/search', (req, res) => {
                 categories: 'Furniture'
               },
               {
-                categories: 'Books',
                 name: 'The Great Alone: A Novel',
                 description:
                   'In Kristin Hannah’s The Great Alone, a desperate family seeks a new beginning in the near-isolated wilderness of Alaska only to find that their unpredictable environment is less threatening than the erratic behavior found in human nature.',
