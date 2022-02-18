@@ -28,12 +28,12 @@ app.listen(port, () => {
 
 //Api endpoint for products
 app.get('/products/search', (req, res) => {
-    res.send(
+    res.json(
       
         [
             {
                 name: "Xbox Series S Console",
-                description : "Combining speed and performance, the Xbox Series S console lets you play games your way. This all-digital gaming powerhouse features a custom 512GB SSD for fast gameplay and reduced load times.",
+                description : "This all-digital gaming powerhouse features a custom 512GB SSD for fast gameplay and reduced load times.",
                 price: "399",
                 image: "./images/1.jpg",
                 stock: "10",
@@ -41,7 +41,7 @@ app.get('/products/search', (req, res) => {
             },
             {
                 name: "Nintendo Switch Console",
-                description : "Do what you never thought possible with Nintendo Switch. With up to 9 hours of battery, go from single- and multi-player thrills at home, to playing the same title wherever and whenever you want.",
+                description : "9 hours of battery, go from single- and multi-player thrills at home, to playing the same title wherever and whenever you want.",
                 price: "380",
                 image: "./images/2.jpg",
                 stock: "10",
@@ -50,7 +50,7 @@ app.get('/products/search', (req, res) => {
             },
             {
                 name: "Playstation 5 Console",
-                description : "Elevate your gameplay with the PlayStation 5 console with Astro’s Playroom. It delivers every game in bold colour and lifelike details so you never miss an important moment.",
+                description : "the PlayStation 5 delivers every game in bold colour and lifelike details so you never miss an important moment.",
                 price: "632",
                 image: "./images/3.jpg",
                 stock: "10",
@@ -592,6 +592,6 @@ app.get('/products/search', (req, res) => {
               
             
         
-    ])
+            ]);
 });
 

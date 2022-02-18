@@ -8,7 +8,7 @@ class Electronicslist extends Component {
   }
 
   componentDidMount(){
-    axios.get("http://localhost:9000/products/search?categories=Electronics")
+    axios.get("http://localhost:9000/products/search")
       .then(response => {
         console.log(response);
         this.setState({products: response.data})})
@@ -19,11 +19,15 @@ class Electronicslist extends Component {
 
     return (
       <div>
-          
+          {/* {products.filter(product => {
+              if(product.categories=="Electronics"){
+                  return product
+              }
+          } ).*/}
           {
-            products.map(product => 
+          products.map(product => 
                 
-              <div>
+              <div key={product.categories="Electronics"}>
                 {product.name}
                   
               
