@@ -110,7 +110,7 @@ const phones = [
     product_name:
       'Apple iPad Pro 12.9" 128GB with Wi-Fi (5th Generation) - Space Grey',
     description:
-      "Unlock productivity and entertainment on the go with the Apple iPad Pro. Powered by the Apple M1 chip, it's equipped for lightning fast performance so you can focus on what matters. It boasts 2 cameras and a Liquid Retina XDR display that delivers vivid colours and stunning detail, so you can edit HDR photos and videos.",
+      "Unlock productivity and entertainment on the go with the Apple iPad Pro. Powered by the Apple M1 chip, it's equipped for lightning fast performance so you can focus on what matters.",
     price: 1400,
     currency: '$',
     stocks: 10,
@@ -195,7 +195,7 @@ const computers = [
     product_name:
       'Apple MacBook Pro 14 inch (2021) - Space Grey (Apple M1 Pro Chip / 512GB SSD / 16GB RAM)',
     description:
-      'The first notebook of its kind, this Apple MacBook Pro is a beast. With the blazing-fast M1 Pro chip — the first Apple silicon designed for pros — you get groundbreaking performance and amazing battery life.',
+      'The first notebook of its kind, this Apple MacBook Pro is a beast. With the blazing-fast M1 Pro chip, you get groundbreaking performance and amazing battery life.',
     price: 2500,
     currency: '$',
     stocks: 10,
@@ -363,7 +363,7 @@ const kids_clothes = [
     product_name:
       'Berngi Summer Kids Clothes Baby Girls Flower Princess Dress for Wedding Party Toddler Girl Children Clothing',
     description:
-      'The dress outside layer is full tutu with rose petals and leaves wrapped in it to make this dress more beautiful. Make your baby become more fashionable, attractive, beautiful, your kids will like it as a Princess gift.',
+      'The dress outside layer is full tutu with rose petals and leaves wrapped in it to make this dress more beautiful.',
     price: 30,
     currency: '$',
     stocks: 10,
@@ -420,7 +420,7 @@ const kids_clothes = [
     product_name:
       'MEILONGER Boys Cargo Pants Cotton Casual Pants Loose Jogging Bottoms Elastic Cuffed Joggers',
     description:
-      'Soft breathable fabric elastic cuffs for casual comfort.Boys elastic Cargo pants made of 100% cotton, soft and breathable, not easy to wrinkle.The thickness of the fabric is moderate, comfortable and breathable, boy will not feel sultry discomfort when you wear the cargo jogging pants for long time.',
+      'Soft breathable fabric elastic cuffs for casual comfort.Boys elastic Cargo pants made of 100% cotton, soft and breathable, not easy to wrinkle.',
     price: 44,
     currency: '$',
     stocks: 10,
@@ -709,7 +709,7 @@ const textbooks = [
     category: 'Books',
     product_name: 'Oxford Textbook of Palliative Nursing',
     description:
-      'The Oxford Textbook of Palliative Nursing remains the most comprehensive treatise on the art and science of palliative care nursing available. Dr. Betty Rolling Ferrell and Dr. Judith A. Paice have invited 162 nursing experts to contribute 76 chapters addressing the physical, psychological, social, and spiritual needs pertinent to the successful palliative care team.',
+      'The Oxford Textbook of Palliative Nursing remains the most comprehensive treatise on the art and science of palliative care nursing available.',
     price: 130,
     currency: '$',
     stocks: 10,
@@ -896,7 +896,7 @@ const vegetables = [
     category: 'Grocery',
     product_name: 'Hass Avocados Bags',
     description:
-      'Each bag has 5 avacados. Hass avocados have a pebbly skin that turns from dark green to near black when ripe. Cut lengthwise, twist to separate the halves, and scoop out the creamy, pale green flesh for guacamole (lemon juice will keep the flesh from discolouring) and smoothies, or add sliced avocado to salad or a BLT sandwich.',
+      'Each bag has 5 avacados. Hass avocados have a pebbly skin that turns from dark green to near black when ripe.',
     price: 5,
     currency: '$',
     stocks: 10,
@@ -1097,7 +1097,7 @@ const girl_toys = [
     category: 'Toys',
     product_name: 'VTech Kidi Secrets Notebook, Pink',
     description:
-      '{Passcode-protected journal lets kids privately record their thoughts, notes and drawings. Add a photo to personalize the cover.',
+      'Passcode-protected journal lets kids privately record their thoughts, notes and drawings. Add a photo to personalize the cover.',
     price: 20,
     currency: '$',
     stocks: 10,

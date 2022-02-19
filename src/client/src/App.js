@@ -5,33 +5,15 @@ import SlideShow from './SlideShow';
 import './App.css';
 import Types from './Types';
 import Footer from './Footer';
-import FurnitureTypes from './FurnitureTypes';
-import BooksTypes from './BooksTypes';
-import GroceryTypes from './GroceryTypes';
-import ToysTypes from './ToysTypes';
-import MainGameContent from './MainGameContent';
-import MainPhoneContent from './MainPhoneContent';
-import MainComputerContent from './MainComputerContent';
-import MainMenClothesContent from './MainMenClothesContent';
-import MainWomenClothesContent from './MainWomenClothesContent';
-import MainKidsClothesContent from './MainKidsClothesContent';
-import MainLivingFurnitureContent from './MainLivingFurnitureContent';
-import MainBedroomFurnitureContent from './MainBedroomFurnitureContent';
-import MainNovelsContent from './MainNovelsContent';
-import MainTextbooksContent from './MainTextbooksContent';
-import MainComicsContent from './MainComicsContent';
-import MainFruitsContent from './MainFruitsContent';
-import MainVegetablesContent from './MainVegetablesContent';
-import MainSnacksContent from './MainSnacksContent';
-import MainBoyToysContent from './MainBoyToysContent';
-import MainGirlToysContent from './MainGirlToysContent';
 import Electronicslist from './Electronicslist';
+import Clotheslist from './Clotheslist';
+import Furniturelist from './Furniturelist';
+import Bookslist from './Bookslist';
+import Grocerylist from './Grocerylist';
+import Toyslist from './Toyslist';
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Login from './Login';
-//import Electronics_Types from "./ElectronicsTypes";
-import ElectronicsTypes from './ElectronicsTypes';
-import ClothesTypes from './ClothesTypes';
 
 class App extends Component {
   constructor(props) {
@@ -80,218 +62,60 @@ class App extends Component {
             element={
               <>
                 <Header />
-                
-                <Electronicslist/>
+
+                <Electronicslist />
                 <Footer />
               </>
             }
           ></Route>
           <Route
-            path="/ClothesTypes"
+            path="/Clotheslist"
             element={
               <>
                 <Header />
-                <ClothesTypes />
+
+                <Clotheslist />
                 <Footer />
               </>
             }
           ></Route>
           <Route
-            path="/FurnitureTypes"
+            path="/Furniturelist"
             element={
               <>
                 <Header />
-                <FurnitureTypes />
+
+                <Furniturelist />
                 <Footer />
               </>
             }
           ></Route>
           <Route
-            path="/BooksTypes"
+            path="/Bookslist"
             element={
               <>
                 <Header />
-                <BooksTypes />
+                <Bookslist />
                 <Footer />
               </>
             }
           ></Route>
           <Route
-            path="/GroceryTypes"
+            path="/Grocerylist"
             element={
               <>
                 <Header />
-                <GroceryTypes />
+                <Grocerylist />
                 <Footer />
               </>
             }
           ></Route>
           <Route
-            path="/ToysTypes"
+            path="/Toyslist"
             element={
               <>
                 <Header />
-                <ToysTypes />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainGameContent"
-            element={
-              <>
-                <Header />
-                <MainGameContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainPhoneContent"
-            element={
-              <>
-                <Header />
-                <MainPhoneContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainComputerContent"
-            element={
-              <>
-                <Header />
-                <MainComputerContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainMenClothesContent"
-            element={
-              <>
-                <Header />
-                <MainMenClothesContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainWomenClothesContent"
-            element={
-              <>
-                <Header />
-                <MainWomenClothesContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainKidsClothesContent"
-            element={
-              <>
-                <Header />
-                <MainKidsClothesContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainLivingFurnitureContent"
-            element={
-              <>
-                <Header />
-                <MainLivingFurnitureContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainBedroomFurnitureContent"
-            element={
-              <>
-                <Header />
-                <MainBedroomFurnitureContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainNovelsContent"
-            element={
-              <>
-                <Header />
-                <MainNovelsContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainTextbooksContent"
-            element={
-              <>
-                <Header />
-                <MainTextbooksContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainComicsContent"
-            element={
-              <>
-                <Header />
-                <MainComicsContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainFruitsContent"
-            element={
-              <>
-                <Header />
-                <MainFruitsContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainVegetablesContent"
-            element={
-              <>
-                <Header />
-                <MainVegetablesContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainSnacksContent"
-            element={
-              <>
-                <Header />
-                <MainSnacksContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainBoyToysContent"
-            element={
-              <>
-                <Header />
-                <MainBoyToysContent />
-                <Footer />
-              </>
-            }
-          ></Route>
-          <Route
-            path="/MainGirlToysContent"
-            element={
-              <>
-                <Header />
-                <MainGirlToysContent />
+                <Toyslist />
                 <Footer />
               </>
             }
