@@ -18,7 +18,7 @@ export default function Types() {
         <Row>
           <Col sm>
             <div className="column_top">
-              <Link to="/ElectronicsTypes">
+              <Link to="/Electronicslist">
                 <img
                   data-aos="fade"
                   src="https://media.wired.com/photos/5dfc14fe0c5fac0008be12bb/1:1/w_803,h_803,c_limit/Gear-Beats-Solo-Pro-gold-SOURCE-Beats.jpg"

@@ -76,11 +76,11 @@ class App extends Component {
             }
           />
           <Route
-            path="/ElectronicsTypes"
+            path="/Electronicslist"
             element={
               <>
                 <Header />
-                {/* <ElectronicsTypes /> */}
+                
                 <Electronicslist/>
                 <Footer />
               </>
