@@ -1,27 +1,53 @@
-.columnlist{
-    width: 33.33%;
-    padding: 10px;
-   
+.container{
+	max-width: 1600px;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content: space-evenly;
 }
 
-.columnlist img{
-    height:350px;
-    width: 350px;
-} 
+h4{
+	text-align: center;
+	color: white;
+	padding-top: 15px;
+}
 
-.addtocardbutton{
-    width: 30%;
-	height: 40px;
-	margin: 10px auto;
-	display: block;
-	color: #fff;
-	background: #40916c;
-	font-size: 1em;
-	font-weight: bold;
-	margin-top: 20px;
-	outline: none;
-	border: none;
-	border-radius: 5px;
-	transition: .2s ease-in;
-	cursor: pointer;
+.box{
+	width:33%;
+	padding:40px;
+	
+}
+
+.description {
+	text-align: center;
+	color: white;
+	font-size: 18px;
+}
+
+.box img{
+	width: 400px;
+	height:400px;
+	
+
+}
+
+.price{
+	font-size: 25px;
+	text-align: center;
+	color: white;
+}
+
+.stock{
+	text-align: center;
+	color: white;
+	font-size:20px;
+}
+
+@media screen and (max-width: 768px) {
+    .box{
+		width:100%;
+	}
+	.box img{
+		width: 100%;
+		padding-right: 7px;
+	}
 }

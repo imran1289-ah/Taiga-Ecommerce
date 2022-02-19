@@ -5,7 +5,9 @@ import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import './Productlist.css'
+import './Productlist.css';
+import { Dropdown } from 'react-bootstrap';
+
 
 class Electronicslist extends Component {
   
@@ -19,57 +21,38 @@ class Electronicslist extends Component {
         console.log(response);
         this.setState({products: response.data})})
   }
+
+  
+  
   
   render() {
     const {products} = this.state
 
-    return (
-      <div>
-          
-          {/* {
-          products.map(product => 
-                
-              <div>
-                {product.name}
-                  
-              
-              </div>
-                 
-                
-              )
-          } */}
+    
 
+    return (
+          <div className="container">
           {
             products.map(function(product, index){
               if(product.categories == "Electronics"){
-                return <div> 
-                 
-                      
-                  
-                  <img src={product.image} alt="Electronics"></img> 
-                  <h3>{product.name}</h3> <p>{product.price} $</p> 
-                  <p>{product.stock} in stocks</p> <p>{product.description}</p> 
-                  <button class="addtocardbutton">Add to cart</button> 
-                      
-
-                 
-                 
-                 
-                      
-                    
-                    
-                  
-                  </div>
-                  
-              }
+                return<div className="box" data-aos="fade">
+                      <img src={product.image}></img>
+                      <div className="product">
+                        <h4>{product.name}</h4>
+                        <p className="price">{product.price} $</p>
+                        <p className="stock">{product.stock} in stocks</p>
+                        <p className="description">
+                          
+                            {product.description}
+                        </p>
+                        <button class="login-signup-button">Add To Cart</button>
+                      </div>
+                      </div>
+                  }
             })
-          }
-
-
+          }  
+          </div>
         
-        
-        
-      </div>
     )
   }
 }
