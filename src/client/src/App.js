@@ -5,6 +5,13 @@ import SlideShow from './SlideShow';
 import './App.css';
 import Types from './Types';
 import Footer from './Footer';
+import Login from './Login';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 import Electronicslist from './Electronicslist';
 import Clotheslist from './Clotheslist';
 import Furniturelist from './Furniturelist';
@@ -12,8 +19,6 @@ import Bookslist from './Bookslist';
 import Grocerylist from './Grocerylist';
 import Toyslist from './Toyslist';
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Login from './Login';
 
 class App extends Component {
   constructor(props) {
