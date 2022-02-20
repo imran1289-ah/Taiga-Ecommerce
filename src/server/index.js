@@ -6,13 +6,13 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const crypto = require('crypto');
-
 // React runs on port 3000 by default
 const port = 9000;
 const app = express();
 
 // Add Express.js middleware for request handling
 app.use(cors());
+
 
 // Initialize the database connection
 const mongoUrl = 'mongodb://localhost:27017/taiga';
@@ -98,3 +98,24 @@ app.get('/testAPI', (req, res) => {
 app.listen(port, () => {
     console.log('Taiga server listening on port ' + port);
 });
+
+
+app.use(express.json());
+
+// Dummy login endpoint: login to existing account - POST {email, password}
+app.post('/users/login', (req, res) => {
+    //code to perform login
+
+    console.log("Handling login POST:");
+    console.log(req.body);
+});
+
+// Dummy register endpoint: register new account - POST {email, name, password, user type}
+app.post('/users/register', (req, res) => {
+    //code to perform registration
+    console.log("Handling register POST:");
+    console.log(req.body);
+});
+
+
+
