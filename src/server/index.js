@@ -12,7 +12,8 @@ const app = express();
 
 // Add Express.js middleware for request handling
 app.use(cors());
-
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 // Initialize the database connection
 const mongoUrl = 'mongodb://localhost:27017/taiga';
@@ -58,7 +59,7 @@ passport.use(new LocalStrategy(
                 if (!user) { return callback(null, false) }
 
                 // User found, validate the supplied password
-                if (validatePassword(password, user.hash, user.salt)) {
+                if (validatePassword(password, user.hashedPassword, user.salt)) {
                     // Correct password, call the callback function with no error and the found user
                     return callback(null, user);
                 }
@@ -99,21 +100,47 @@ app.listen(port, () => {
     console.log('Taiga server listening on port ' + port);
 });
 
-app.use(express.json());
+// Register new account - POST {email, name, password, user type}
+app.post('/users/register', (req, res) => {
+    // Ensure password exists
+    if (req.body && !req.body.password) {
+        return res.status(400).send('Missing password in request body.');
+    }
+    // Create new salt and use it to hash password
+    const saltAndHash = generateNewPassword(req.body.password);
 
-// Dummy login endpoint: login to existing account - POST {email, password}
-app.post('/users/login', (req, res) => {
-    //code to perform login
-
-    console.log("Handling login POST:");
-    console.log(req.body);
+    // Create a new user document
+    const newUser = new UserModel({
+        email: req.body.email,
+        name: req.body.name,
+        hashedPassword: saltAndHash.hash,
+        salt: saltAndHash.salt,
+        userType: req.body.userType
+    });
+    newUser.save(function (err) {
+        // Return an error if the user cannot be saved in the database
+        if (err) {
+            console.log(err);
+            return res.status(500).send('Could not create new user in database.');
+        }
+        // Return a success message and print the user data to the console for logging
+        console.log('Registered new user:');
+        console.log(JSON.stringify(newUser));
+        res.status(201).end();
+    });
 });
 
-// Dummy register endpoint: register new account - POST {email, name, password, user type}
-app.post('/users/register', (req, res) => {
-    //code to perform registration
-    console.log("Handling register POST:");
-    console.log(req.body);
+// Login endpoint: login to existing account - POST {email, password}
+app.post('/users/login', passport.authenticate('local'), (req, res) => {
+    // If this callback is called, passport.authenticate was successful
+    console.log('User logged with email: ' + req.body.email);
+    res.status(200).end();
+});
+
+// Logout endpoint: ensure user is logged in
+app.get('/users/logout', (req, res) => {
+    req.logout();
+    res.status(200).end();
 });
 
 //Api endpoint for products
