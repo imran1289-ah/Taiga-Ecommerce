@@ -1,3 +1,4 @@
+// Imports of npm packages
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
@@ -6,6 +7,12 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const crypto = require('crypto');
+
+// Imports of local modules
+const auth = require('./auth');
+const userRouter = require('./routes/userRoutes');
+const UserModel = require('./models/user');
+
 // React runs on port 3000 by default
 const port = 9000;
 const app = express();
@@ -19,8 +26,6 @@ app.use(express.urlencoded({extended: true}));
 const mongoUrl = 'mongodb://localhost:27017/taiga';
 mongoose.connect(mongoUrl);
 
-const UserModel = require('./models/user');
-
 // Set up connect-mongo and express-session to track user login sessions
 app.use(session({
     secret: 'devSecret', // Used to generate unique session authentication hashes, change to random value before deployment
@@ -31,20 +36,6 @@ app.use(session({
     })
 }));
 
-// Function to validate a password during login requests
-function validatePassword(password, hash, salt) {
-    // Create a hashed password from the user input and compare it to the hash stored in the database
-    var hashVerify = crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
-    return hash === hashVerify;
-}
-// Function to generate a salt and hash for a new password on registration or password change
-function generateNewPassword(password) {
-    // Generate a random salt for the user's password then compute the hash
-    var salt = crypto.randomBytes(32).toString('hex');
-    var hash = crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
-
-    return { salt: salt, hash: hash };
-}
 // Tell passport how it should validate a login attempt
 passport.use(new LocalStrategy(
     {
@@ -59,7 +50,7 @@ passport.use(new LocalStrategy(
                 if (!user) { return callback(null, false) }
 
                 // User found, validate the supplied password
-                if (validatePassword(password, user.hashedPassword, user.salt)) {
+                if (auth.validatePassword(password, user.hashedPassword, user.salt)) {
                     // Correct password, call the callback function with no error and the found user
                     return callback(null, user);
                 }
@@ -89,6 +80,9 @@ passport.deserializeUser(function (id, callback) {
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Register the endpoint routes with the express app
+app.use('/users', userRouter);
+
 app.get('/', (req, res) => {
     res.send('Hello world from server!');
 });
@@ -98,49 +92,6 @@ app.get('/testAPI', (req, res) => {
 
 app.listen(port, () => {
     console.log('Taiga server listening on port ' + port);
-});
-
-// Register new account - POST {email, name, password, user type}
-app.post('/users/register', (req, res) => {
-    // Ensure password exists
-    if (req.body && !req.body.password) {
-        return res.status(400).send('Missing password in request body.');
-    }
-    // Create new salt and use it to hash password
-    const saltAndHash = generateNewPassword(req.body.password);
-
-    // Create a new user document
-    const newUser = new UserModel({
-        email: req.body.email,
-        name: req.body.name,
-        hashedPassword: saltAndHash.hash,
-        salt: saltAndHash.salt,
-        userType: req.body.userType
-    });
-    newUser.save(function (err) {
-        // Return an error if the user cannot be saved in the database
-        if (err) {
-            console.log(err);
-            return res.status(500).send('Could not create new user in database.');
-        }
-        // Return a success message and print the user data to the console for logging
-        console.log('Registered new user:');
-        console.log(JSON.stringify(newUser));
-        res.status(201).end();
-    });
-});
-
-// Login endpoint: login to existing account - POST {email, password}
-app.post('/users/login', passport.authenticate('local'), (req, res) => {
-    // If this callback is called, passport.authenticate was successful
-    console.log('User logged with email: ' + req.body.email);
-    res.status(200).end();
-});
-
-// Logout endpoint: ensure user is logged in
-app.get('/users/logout', (req, res) => {
-    req.logout();
-    res.status(200).end();
 });
 
 //Api endpoint for products
