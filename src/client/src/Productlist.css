@@ -1,0 +1,53 @@
+.container{
+	max-width: 1600px;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content: space-evenly;
+}
+
+h4{
+	text-align: center;
+	color: white;
+	padding-top: 15px;
+}
+
+.box{
+	width:33%;
+	padding:40px;
+	
+}
+
+.description {
+	text-align: center;
+	color: white;
+	font-size: 18px;
+}
+
+.box img{
+	width: 400px;
+	height:400px;
+	
+
+}
+
+.price{
+	font-size: 25px;
+	text-align: center;
+	color: white;
+}
+
+.stock{
+	text-align: center;
+	color: white;
+	font-size:20px;
+}
+
+@media screen and (max-width: 768px) {
+    .box{
+		width:100%;
+	}
+	.box img{
+		width: 100%;
+		padding-right: 7px;
+	}
+}
