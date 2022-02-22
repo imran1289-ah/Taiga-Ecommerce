@@ -1,20 +1,28 @@
-/* body{
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-} */
 .main{
 
 	height: 700px;
 	overflow: hidden;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
+	background: linear-gradient(to bottom, #000000, #010e05, #232f27);
 }
+.login-message{
+
+	color: #fff;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 60px;
+}
+.register-message{
+
+	color: #2d6a4f;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 60px;
+}
+
 #chk{
 	display: none;
 }
