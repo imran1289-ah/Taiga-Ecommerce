@@ -29,15 +29,19 @@ function Login() {
           password: password,
         }),
       });
-      let resJson = await res.json();
       if (res.status === 200) {
-        window.alert("200 ok")
+        setMessage("Welcome back " + email);
         setPassword("");
         setEmail("");
-        setMessage("User logged in");
+      } else if(res.status === 400){
+        setMessage('Missing Email or Password');
+        document.getElementsByClassName("login-message").style.color ='red';
+      } else if(res.status === 401){
+        setMessage('Wrong Email or Password');
       } else {
-        setMessage("Some error occured");
+        setMessage("Some error occured with status " + res.status);
       }
+      
     } catch (err) {
       console.log(err);
     }
@@ -59,15 +63,14 @@ function Login() {
           userType: document.getElementById("options").options[document.getElementById("options").selectedIndex].text,
         }),
       });
-      let resJson = await res.json();
-      if (res.status === 200) {
-        window.alert("200 ok")
+      
+      if (res.status === 201) {
         setREmail("");
         setRPassword("");
         setRName("");
-        setRMessage("User registered successfully");
+        setRMessage(rName + " registered successfully");
       } else {
-        setRMessage("Some error occured");
+        setRMessage("Some error occured with status " + res.status);
       }
     } catch (err) {
       console.log(err);
@@ -101,7 +104,7 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                 ></input>
                 <button type="submit" class="login-signup-button">Login</button>
-                <div className="message">{message ? <p>{message}</p> : null}</div>
+                <div class="login-message">{message ? <p>{message}</p> : null}</div>
             </form>
         </div>
 
@@ -142,6 +145,7 @@ function Login() {
                 </select>
 
                 <button class="login-signup-button">Sign up</button>
+                <div class="register-message">{rMessage ? <p>{rMessage}</p> : null}</div>
             </form>
         </div>
 
