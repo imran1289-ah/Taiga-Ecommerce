@@ -1,3 +1,4 @@
+// Imports of npm packages
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
@@ -6,19 +7,24 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const crypto = require('crypto');
+
+// Imports of local modules
+const auth = require('./auth');
+const userRouter = require('./routes/userRoutes');
+const UserModel = require('./models/user');
+
 // React runs on port 3000 by default
 const port = 9000;
 const app = express();
 
 // Add Express.js middleware for request handling
 app.use(cors());
-
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 // Initialize the database connection
 const mongoUrl = 'mongodb://localhost:27017/taiga';
 mongoose.connect(mongoUrl);
-
-const UserModel = require('./models/user');
 
 // Set up connect-mongo and express-session to track user login sessions
 app.use(session({
@@ -30,20 +36,6 @@ app.use(session({
     })
 }));
 
-// Function to validate a password during login requests
-function validatePassword(password, hash, salt) {
-    // Create a hashed password from the user input and compare it to the hash stored in the database
-    var hashVerify = crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
-    return hash === hashVerify;
-}
-// Function to generate a salt and hash for a new password on registration or password change
-function generateNewPassword(password) {
-    // Generate a random salt for the user's password then compute the hash
-    var salt = crypto.randomBytes(32).toString('hex');
-    var hash = crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
-
-    return { salt: salt, hash: hash };
-}
 // Tell passport how it should validate a login attempt
 passport.use(new LocalStrategy(
     {
@@ -58,7 +50,7 @@ passport.use(new LocalStrategy(
                 if (!user) { return callback(null, false) }
 
                 // User found, validate the supplied password
-                if (validatePassword(password, user.hash, user.salt)) {
+                if (auth.validatePassword(password, user.hashedPassword, user.salt)) {
                     // Correct password, call the callback function with no error and the found user
                     return callback(null, user);
                 }
@@ -88,6 +80,9 @@ passport.deserializeUser(function (id, callback) {
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Register the endpoint routes with the express app
+app.use('/users', userRouter);
+
 app.get('/', (req, res) => {
     res.send('Hello world from server!');
 });
@@ -97,23 +92,6 @@ app.get('/testAPI', (req, res) => {
 
 app.listen(port, () => {
     console.log('Taiga server listening on port ' + port);
-});
-
-app.use(express.json());
-
-// Dummy login endpoint: login to existing account - POST {email, password}
-app.post('/users/login', (req, res) => {
-    //code to perform login
-
-    console.log("Handling login POST:");
-    console.log(req.body);
-});
-
-// Dummy register endpoint: register new account - POST {email, name, password, user type}
-app.post('/users/register', (req, res) => {
-    //code to perform registration
-    console.log("Handling register POST:");
-    console.log(req.body);
 });
 
 //Api endpoint for products
