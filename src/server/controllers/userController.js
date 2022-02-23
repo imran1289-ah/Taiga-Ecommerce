@@ -1,11 +1,14 @@
+const { validationResult } = require('express-validator');
 const UserModel = require('../models/user');
 const auth = require('../auth');
 
 exports.registerUser = function (req, res) {
-    // Ensure password exists
-    if (req.body && !req.body.password) {
-        return res.status(400).send('Missing password in request body.');
+    // Handle validation errors during routing
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ 'errors': errors.array() });
     }
+
     // Create new salt and use it to hash password
     const saltAndHash = auth.generateNewPassword(req.body.password);
 
