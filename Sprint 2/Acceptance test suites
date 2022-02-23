@@ -2,14 +2,14 @@ Acceptance test suites
 
 User Story #1:
 
-- #1 When a customer registers, we need to check that the customer should register by filling all the required fields. If the user is registered successfully, a successful registration message should show.
+- #1 When a customer registers, we need to check that the customer should register by filling all the required fields. If the customer is registered successfully, a successful registration message should show.
 - #2 When a customer registers, we need to verify that their email entered for the registration is valid (@). If the email is not valid, the customer should not be able to create a new account and an error message should be displayed.
 - #3 When a customer registers, we need to verify that their email has not been already used by another existing account. If the email has already been used, the customer should not be able to create a new account with an existing email and an error message should be displayed.
 - #4 When a customer logins, we need to verify that their email and password are correct. The two elements should be the same ones as entered by the customer when he creates a new account. If one of the elements are wrong, the customer should not be able to log in and an error message should be displayed.
 
 User Story #2:
-- #5 Same as #1, but with the seller registration.
-- #6 Same as #2, but with the seller registration.
-- #7 Same as #3, but with the seller registration.
-- #8 Same as #4, but with the seller login.
+- #5 When a seller registers, we need to check that the seller should register by filling all the required fields. If the seller is registered successfully, a successful registration message should show.
+- #6 When a seller registers, we need to verify that their email entered for the registration is valid (@). If the email is not valid, the seller should not be able to create a new account and an error message should be displayed.
+- #7 When a seller registers, we need to verify that their email has not been already used by another existing account. If the email has already been used, the seller should not be able to create a new account with an existing email and an error message should be displayed.
+- #8 When a seller logins, we need to verify that their email and password are correct. The two elements should be the same ones as entered by the seller when he creates a new account. If one of the elements are wrong, the seller should not be able to log in and an error message should be displayed.
 - #9 When a seller logins, we need to verify that he is a seller by checking if their account is a type of seller. If the user is logged in as a seller, he should be able to see the add/edit/delete product form and the account type should be displayed.
