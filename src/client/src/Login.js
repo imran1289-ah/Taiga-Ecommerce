@@ -22,6 +22,7 @@ const Login = () => {
     try {
       let res = await fetch("http://localhost:9000/users/login", {
         method: "POST",
+        credentials: "include",
         withCredentials: true,
         headers: {
             'Content-Type': 'application/json'},
@@ -56,6 +57,7 @@ const Login = () => {
     try {
       let res = await fetch("http://localhost:9000/users/register", {
         method: "POST",
+        credentials: "include",
         headers: {
             'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -88,6 +90,7 @@ const Login = () => {
   try {
     let res = await fetch("http://localhost:9000/users/logout", {
       method: "GET",
+      credentials: "include",
       withCredentials: true,
       headers: {
           'Content-Type': 'application/json'},
