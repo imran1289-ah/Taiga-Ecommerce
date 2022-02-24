@@ -74,8 +74,6 @@ const Login = () => {
         setRName("");
         setRMessage(rName + " registered successfully");
       } else {
-        window.alert(
-          res.body);
         setRMessage("Some error occured with status " + res.status);
       }
     } catch (err) {
