@@ -1,0 +1,2 @@
+# Plan for Sprint 3
+The plan for sprint 3 will be to add the missing tasks needed to implement in user story 2 in sprint 2 and to complete all tasks that are related to user story 3. The sprint 3 tasks have been separated into front end and back-end tasks in which each group of members will work on the front end and backend. The testing framework will also be chosen and the necessary testing will be done. 
