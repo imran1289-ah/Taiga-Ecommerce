@@ -40,6 +40,7 @@ exports.loginSuccess = function (req, res) {
 }
 
 exports.logoutUser = function (req, res) {
+    console.log("logging out");
     req.logout();
     res.status(200).end();
 }

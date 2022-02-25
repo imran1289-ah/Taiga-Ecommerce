@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './Login.css'
 
 
-function Login() {
+const Login = () => {
     // for login
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,6 +22,8 @@ function Login() {
     try {
       let res = await fetch("http://localhost:9000/users/login", {
         method: "POST",
+        credentials: "include",
+        withCredentials: true,
         headers: {
             'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -35,6 +37,7 @@ function Login() {
         setEmail("");
       } else if(res.status === 400){
         setMessage('Missing Email or Password');
+        // TODO: Fix this
         document.getElementsByClassName("login-message").style.color ='red';
       } else if(res.status === 401){
         setMessage('Wrong Email or Password');
@@ -54,6 +57,7 @@ function Login() {
     try {
       let res = await fetch("http://localhost:9000/users/register", {
         method: "POST",
+        credentials: "include",
         headers: {
             'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -76,6 +80,33 @@ function Login() {
       console.log(err);
     }
   };
+
+
+ // handle GET logout data
+ let handleLogout = async (e) => {
+  e.preventDefault();
+  try {
+    let res = await fetch("http://localhost:9000/users/logout", {
+      method: "GET",
+      credentials: "include",
+      withCredentials: true,
+      headers: {
+          'Content-Type': 'application/json'},
+    });
+    if (res.status === 200) {
+      setMessage("Logged out with success");
+    } else if(res.status === 401){
+      setMessage('User not logged in');
+    } else {
+      setMessage("Some error occured with status " + res.status);
+    }
+    
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
 
 
   return ( 
@@ -104,8 +135,9 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                 ></input>
                 <button type="submit" class="login-signup-button">Login</button>
-                <div class="login-message">{message ? <p>{message}</p> : null}</div>
             </form>
+            <div>{message.includes("Welcome back ") ? <button type="logout" class="logout-button" onClick={handleLogout}>Logout</button> : null}</div>
+            <div class="login-message" >{message ? <p>{message}</p> : null}</div>
         </div>
 
         <div class="signup">

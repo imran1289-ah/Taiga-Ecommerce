@@ -18,7 +18,12 @@ const port = 9000;
 const app = express();
 
 // Add Express.js middleware for request handling
-app.use(cors());
+app.use(cors({
+  origin : 'http://localhost:3000',
+  credentials: true, // <= Accept credentials (cookies) sent by the client
+}));
+
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
