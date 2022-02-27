@@ -18,6 +18,7 @@ import Furniturelist from './Furniturelist';
 import Bookslist from './Bookslist';
 import Grocerylist from './Grocerylist';
 import Toyslist from './Toyslist';
+import SellerMenu from './SellerMenu';
 
 
 class App extends Component {
@@ -125,7 +126,13 @@ class App extends Component {
               </>
             }
           ></Route>
+
+          <Route path="/SellerMenu" element={<><SellerMenu/></>}></Route> 
+
         </Routes>
+
+        
+
       </BrowserRouter>
     );
   }

@@ -51,6 +51,15 @@ function Header() {
                 Manage Profile
               </button>
             </Nav.Link>
+
+            <Nav.Link href="/SellerMenu">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                View Seller Products
+              </button>
+            </Nav.Link>
+
+
+
             <Nav.Link href="#action4">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Cart
