@@ -3,6 +3,8 @@ import './SellerMenu.css'
 import Table from 'react-bootstrap/Table';
 import axios from 'axios'
 import './Login.css'
+import { NavLink } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export class SellerMenu extends Component {
     state = {
@@ -16,9 +18,11 @@ export class SellerMenu extends Component {
             this.setState({products: response.data})})
       }
 
+      
 
     render() {
         const {products} = this.state
+        
 
         return (
         <div>
@@ -55,51 +59,14 @@ export class SellerMenu extends Component {
                 </Table>
             </div>
             
-            <h3>Add a product</h3>
-            <div class="login">
-            <form>
-                <input class="login-signup-input" 
-                    type="text"
-                    name="productName"
-                    placeholder="Name of Product">
-                </input>
-                <input class="login-signup-input" 
-                    type="text"
-                    name="productPrice"
-                    placeholder="Price"
-                ></input>
-                <input class="login-signup-input" 
-                    type="text"
-                    name="productStock"
-                    placeholder="Stock"
-                ></input>
-                <select class="login-signup-input">
-                    <option value="Electronics">Electronic</option>
-                    <option value="Clothes" selected>Clothes</option>
-                    <option value="Furniture">Furniture</option>
-                    <option value="Books">Book</option>
-                    <option value="Grocery">Grocery</option>
-                    <option value="Toys">Toy</option>
-                </select>
-                {/* <input class="login-signup-input" 
-                    type="text"
-                    name="productCategory"
-                    placeholder="Category"
-                ></input> */}
-                <textarea class="login-signup-input" 
-                    type="textarea"
-                    name="productDescription"
-                    placeholder="Description"
-                ></textarea>
-                <input class="login-signup-input" 
-                    type="text"
-                    name="productImageURL"
-                    placeholder="Image URL"
-                ></input>
-                <button type="submit" class="login-signup-button">Add product</button>
-            </form>
+            <NavLink href="/AddProduct">
+                <button type="submit" class="login-signup-button">
+                    Add Product
+                </button>
+            </NavLink>
+            
            
-        </div>
+        
             
            
             
