@@ -106,6 +106,8 @@ app.get('/products/search', (req, res) => {
           if(err) throw err
           else res.json(result)
     })
-       
 });
+
+
+
 

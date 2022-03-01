@@ -25,7 +25,7 @@ export class AddProduct extends Component {
     submitForm = event => {
         event.preventDefault() //No page refresh
         console.log(this.state)
-        axios.post('http://localhost:9000/products/search', this.state)
+        axios.post("http://localhost:9000/products/search", this.state)
             .then(res => {
                 console.log(res)
             })
