@@ -13,6 +13,7 @@ const auth = require('./auth');
 const userRouter = require('./routes/userRoutes');
 const UserModel = require('./models/user');
 const ProductsModel = require('./models/products');
+const productRouter = require('./routes/productsRoutes');
 
 // React runs on port 3000 by default
 const port = 9000;
@@ -107,6 +108,9 @@ app.get('/products/search', (req, res) => {
           else res.json(result)
     })
 });
+
+//Api endpoing for creating products
+app.use('/products', productRouter);
 
 
 

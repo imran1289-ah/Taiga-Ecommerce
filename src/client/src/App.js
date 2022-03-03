@@ -128,8 +128,8 @@ class App extends Component {
             }
           ></Route>
 
-          <Route path="/SellerMenu" element={<><SellerMenu/></>}></Route>
-          <Route path="/AddProduct" element={<><AddProduct/></>}></Route>
+          <Route path="/SellerMenu" element={<><Header/><SellerMenu/><Footer/></>}></Route>
+          <Route path="/AddProduct" element={<><Header/><AddProduct/><Footer/></>}></Route>
 
         </Routes>
 

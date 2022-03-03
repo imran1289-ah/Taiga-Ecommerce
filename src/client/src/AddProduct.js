@@ -18,14 +18,14 @@ export class AddProduct extends Component {
     }
 
     //Each input is getting updated
-    KeepInSync = (event) => {
+    onChange = (event) => {
         this.setState({[event.target.name]: event.target.value})
     }
 
     submitForm = event => {
         event.preventDefault() //No page refresh
         console.log(this.state)
-        axios.post("http://localhost:9000/products/search", this.state)
+        axios.post("http://localhost:9000/products/create", this.state)
             .then(res => {
                 console.log(res)
             })
@@ -48,23 +48,23 @@ export class AddProduct extends Component {
                     name="name"
                     placeholder="Name of Product"
                     value = {name}
-                    onChange = {this.KeepInSync}>
+                    onChange = {this.onChange}>
                 </input>
                 <input class="login-signup-input" 
                     type="text"
                     name="price"
                     placeholder="Price"
                     value = {price}
-                    onChange = {this.KeepInSync}
+                    onChange = {this.onChange}
                 ></input>
                 <input class="login-signup-input" 
                     type="text"
                     name="stock"
                     placeholder="Stock"
                     value = {stock}
-                    onChange = {this.KeepInSync}
+                    onChange = {this.onChange}
                 ></input>
-                <select class="login-signup-input" name="categories" value={categories} onChange = {this.KeepInSync}>
+                <select class="login-signup-input" name="categories" value={categories} onChange = {this.onChange}>
                     <option value="Electronics">Electronic</option>
                     <option value="Clothes" selected>Clothes</option>
                     <option value="Furniture">Furniture</option>
@@ -77,21 +77,21 @@ export class AddProduct extends Component {
                     name="description"
                     placeholder="Description"
                     value = {description}
-                    onChange = {this.KeepInSync}
+                    onChange = {this.onChange}
                 ></textarea>
                 <input class="login-signup-input" 
                     type="text"
                     name="image"
                     placeholder="Image URL"
                     value = {image}
-                    onChange = {this.KeepInSync}
+                    onChange = {this.onChange}
                 ></input>
                 <input class="login-signup-input" 
                     type="text"
                     name="user"
                     placeholder="Name of Seller"
                     value = {user}
-                    onChange = {this.KeepInSync}>
+                    onChange = {this.onChange}>
                 </input>
                 <button type="submit" class="login-signup-button">Add product</button>
             </form>

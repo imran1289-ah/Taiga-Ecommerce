@@ -26,6 +26,7 @@ export class SellerMenu extends Component {
 
         return (
         <div>
+            <br></br>
             <div className="sellerProductsTable">
                 <Table striped bordered hover size="sm">
                     <thead>
