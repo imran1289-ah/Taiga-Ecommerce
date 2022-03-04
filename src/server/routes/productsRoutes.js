@@ -18,4 +18,29 @@ router.route('/create').post((req,res) => {
         .catch(error => res.json("Error"));
 });
 
+router.route('/update/:id').post((req,res) => {
+    ProductModel.findByIdAndUpdate(req.params.id)
+        .then(product => {
+            product.name = req.body.name
+            product.description = req.body.description
+            product.price = req.body.price
+            product.image = req.body.image
+            product.stock = req.body.stock
+            product.categories = req.body.categories
+            product.user = req.body.user
+
+            product.save()
+                .then(() => res.json("Product was updated"))
+                .catch(error => res.json("Error"));
+            
+        } )
+        .catch(error => res.json("Error finding product"))
+});
+
+router.route('/delete/:id').delete((req,res) => {
+    ProductModel.findByIdAndDelete(req.params.id)
+        .then(() => res.json("Product Deleted"))
+        .catch(error => res.json("Error"));
+})
+
 module.exports = router;

@@ -20,6 +20,7 @@ import Grocerylist from './Grocerylist';
 import Toyslist from './Toyslist';
 import SellerMenu from './SellerMenu';
 import AddProduct from './AddProduct';
+import EditProduct from './EditProduct';
 
 
 class App extends Component {
@@ -130,6 +131,7 @@ class App extends Component {
 
           <Route path="/SellerMenu" element={<><Header/><SellerMenu/><Footer/></>}></Route>
           <Route path="/AddProduct" element={<><Header/><AddProduct/><Footer/></>}></Route>
+          <Route path="/EditProduct/" element={<><Header/><EditProduct/><Footer/></>}></Route>
 
         </Routes>
 
