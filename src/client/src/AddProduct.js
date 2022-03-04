@@ -32,6 +32,8 @@ export class AddProduct extends Component {
             .catch (err => {
                 console.log(err)
             })
+        alert("Product has been added");
+        document.getElementById('button').disabled = true;
     }
 
 
@@ -65,6 +67,7 @@ export class AddProduct extends Component {
                     onChange = {this.onChange}
                 ></input>
                 <select class="login-signup-input" name="categories" value={categories} onChange = {this.onChange}>
+                    <option value="" disabled>Select Category</option>
                     <option value="Electronics">Electronic</option>
                     <option value="Clothes" selected>Clothes</option>
                     <option value="Furniture">Furniture</option>
@@ -93,7 +96,7 @@ export class AddProduct extends Component {
                     value = {user}
                     onChange = {this.onChange}>
                 </input>
-                <button type="submit" class="login-signup-button">Add product</button>
+                <button type="submit" class="login-signup-button" id="button">Add product</button>
             </form>
       </div>
     )
