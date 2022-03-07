@@ -7,32 +7,31 @@ import { Nav, NavLink } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
 export class SellerMenu extends Component {
+    
+    //A state property which contains the information of the products of the seller
     constructor(props) {
         super(props)
       
         this.state = {
             products : [],
           }
-      }
-    
+    }
+
+    //Api call which will get all of the products
     componentDidMount(){
         axios.get("http://localhost:9000/products/search")
           .then(response => {
             console.log(response);
             this.setState({products: response.data})})
+          .catch(console.log("Error fetching products"))
+        
     }
-
     
-
-      
-
-      
-      
-
     render() {
         const {products} = this.state
 
-        const setData = (product) => {
+        //Adding all of the products into the local storage once seller edits a product
+        const saveProduct = (product) => {
             let {name, price, stock, categories, description, image, user, _id } = product;
             localStorage.setItem("productName", name);
             localStorage.setItem("productPrice", price);
@@ -42,9 +41,9 @@ export class SellerMenu extends Component {
             localStorage.setItem("productImage", image);
             localStorage.setItem("productUser", user);
             localStorage.setItem("productID", _id );
-            
         }
 
+        //Api call to delete selected product
         const deleteProduct = (product) => {
             let {_id, name} = product
             localStorage.setItem("productID", _id)
@@ -56,13 +55,11 @@ export class SellerMenu extends Component {
                 .catch (err => {
                     console.log(err)
                 })
-            localStorage.removeItem("productID")
             
+            localStorage.removeItem("productID")
             alert("Product "+product.name+" has been deleted")
             localStorage.removeItem("productName");
             window.location.reload(false);
-
-
         }
 
         
@@ -71,6 +68,7 @@ export class SellerMenu extends Component {
         return (
         <div>
             <br></br>
+            {/* Table which contains all the products seller*/}
             <div className="sellerProductsTable">
                 <Table striped bordered hover size="sm">
                     <thead>
@@ -80,12 +78,13 @@ export class SellerMenu extends Component {
                             <th>Stocks</th>
                             <th>Category</th>
                             <th>Image</th>
-                            <th>Action</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             products.map(function(product, index){
+                                //Add the name of the seller that is logged in. Will render all products that logged in seller has.
                                 if(product.user == "Imran"){
                                     return<tr>
                                             <td >{product.name}</td>
@@ -95,7 +94,7 @@ export class SellerMenu extends Component {
                                             <td className="productImage"><img src={product.image}></img></td>
                                             <td>
                                                  <Link to="/EditProduct">
-                                                    <button type="submit" class="login-signup-button" onClick={() => setData(product)}>
+                                                    <button type="submit" class="login-signup-button" onClick={() => saveProduct(product)}>
                                                         Edit
                                                     </button>
                                                 </Link>
@@ -105,30 +104,22 @@ export class SellerMenu extends Component {
                                                 </button>
                                             </td>
                                         </tr> 
-                                    
                                 }
                             })
                         }
-                        
                     </tbody>
                 </Table>
             </div>
             
+            {/* Button for seller to Add a product */}
             <NavLink href="/AddProduct">
                 <button type="submit" class="login-signup-button">
                     Add Product
                 </button>
             </NavLink>
-            
-           
-        
-            
-           
-            
-
         </div>
         )
     }
-    }
+}
 
 export default SellerMenu
