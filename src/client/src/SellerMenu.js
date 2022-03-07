@@ -47,7 +47,6 @@ export class SellerMenu extends Component {
         const deleteProduct = (product) => {
             let {_id, name} = product
             localStorage.setItem("productID", _id)
-            localStorage.setItem("productName", name)
             axios.delete("http://localhost:9000/products/delete/"+localStorage.getItem("productID"))
                 .then(response => {
                     console.log(response.data)
@@ -58,7 +57,6 @@ export class SellerMenu extends Component {
             
             localStorage.removeItem("productID")
             alert("Product "+product.name+" has been deleted")
-            localStorage.removeItem("productName");
             window.location.reload(false);
         }
 
