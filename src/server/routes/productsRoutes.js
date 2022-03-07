@@ -15,7 +15,7 @@ router.route('/create').post((req,res) => {
     NewProduct = new ProductModel({productName, productDescription, productPrice, productImage, productStock, productCategories, productUser});
 
     NewProduct.save()
-        .then(console.log("Product was sucessful added"))
+        .then(() => console.log("Product was sucessful added"))
         .catch(error => console.log(error));
 });
 
