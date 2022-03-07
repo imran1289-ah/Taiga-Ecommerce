@@ -41,8 +41,9 @@ class Electronicslist extends Component {
                         <h4>{product.name}</h4>
                         <p className="price">{product.price} $</p>
                         <p className="stock">{product.stock} in stocks</p>
+                        <p className ="stock">Product seller : {product.user}</p>
                         <p className="description">
-                          
+
                             {product.description}
                         </p>
                         <button class="login-signup-button">Add To Cart</button>
