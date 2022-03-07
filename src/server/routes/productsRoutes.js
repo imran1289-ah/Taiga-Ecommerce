@@ -4,15 +4,16 @@ const ProductModel = require('../models/products');
 
 //Adds new product into the database
 router.route('/create').post((req,res) => {
-    productName = req.body.name;
-    productDescription = req.body.description;
-    productPrice = req.body.price;
-    productImage = req.body.image;
-    productStock = req.body.stock;
-    productCategories = req.body.categories;
-    productUser = req.body.user;
+    const name = req.body.name;
+    const description = req.body.description;
+    const price = req.body.price;
+    const image = req.body.image;
+    const stock = req.body.stock;
+    const categories = req.body.categories;
+    const user = req.body.user;
 
-    NewProduct = new ProductModel({productName, productDescription, productPrice, productImage, productStock, productCategories, productUser});
+    const NewProduct = new ProductModel({name, description, price, image, stock, categories, user});
+
 
     NewProduct.save()
         .then(() => console.log("Product was sucessful added"))
