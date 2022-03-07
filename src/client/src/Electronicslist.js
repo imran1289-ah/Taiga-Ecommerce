@@ -10,11 +10,14 @@ import { Dropdown } from 'react-bootstrap';
 
 
 class Electronicslist extends Component {
+  constructor(props) {
+    super(props)
   
-  state = {
-    products : [],
+    this.state = {
+      products : [],
+    }
   }
-
+  
   componentDidMount(){
     axios.get("http://localhost:9000/products/search")
       .then(response => {

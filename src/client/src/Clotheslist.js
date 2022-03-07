@@ -9,9 +9,13 @@ import './Productlist.css';
 import { Dropdown } from 'react-bootstrap';
 
 class Clotheslist extends Component {
-  state = {
-    products: [],
-  };
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      products: [],
+    }
+  }
 
   componentDidMount() {
     axios.get('http://localhost:9000/products/search').then((response) => {

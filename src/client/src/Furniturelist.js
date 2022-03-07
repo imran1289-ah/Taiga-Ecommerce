@@ -9,11 +9,15 @@ import './Productlist.css';
 import { Dropdown } from 'react-bootstrap';
 
 class Furniturelist extends Component {
-  state = {
-    products: [],
-  };
-
-  componentDidMount() {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      products: [],
+    }
+  }
+ 
+ componentDidMount() {
     axios.get('http://localhost:9000/products/search').then((response) => {
       console.log(response);
       this.setState({ products: response.data });
