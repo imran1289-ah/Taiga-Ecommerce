@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ProductModel = require('../models/products');
 
+
 router.route('/create').post((req,res) => {
     const name = req.body.name;
     const description = req.body.description;

@@ -5,8 +5,7 @@ import axios from 'axios'
 
 export class EditProduct extends Component {
     
-    
-
+    //State property which will contain all the information of the product that is being eddited
     constructor(props) {
       super(props)
     
@@ -22,14 +21,12 @@ export class EditProduct extends Component {
         }
     }
 
-    
-    
-    
     //Each input is getting updated
-    onChange = (event) => {
+    changeState = (event) => {
         this.setState({[event.target.name]: event.target.value})
     }
 
+    //Api call to edit product
     submitForm = event => {
         event.preventDefault() //No page refresh
         console.log(this.state)
@@ -52,22 +49,14 @@ export class EditProduct extends Component {
         localStorage.removeItem("productID");
 
         document.getElementById('button').disabled = true;
-        
-        
-
-        
-        
-
-
     }
 
 
     render() {
     const {name, description, price, image, stock, categories, user} = this.state
     
-    
-
     return (
+        //Form for the seller to edit product
         <div class="login">
             <br></br>
             <h3>Edit a product</h3>
@@ -77,7 +66,7 @@ export class EditProduct extends Component {
                     name="name"
                     placeholder="Name of Product"
                     value = {name}
-                    onChange = {this.onChange}>
+                    onChange = {this.changeState}>
                         
                 </input>
                 <input class="login-signup-input" 
@@ -85,16 +74,16 @@ export class EditProduct extends Component {
                     name="price"
                     placeholder="Price"
                     value = {price}
-                    onChange = {this.onChange}
+                    onChange = {this.changeState}
                 ></input>
                 <input class="login-signup-input" 
                     type="text"
                     name="stock"
                     placeholder="Stock"
                     value = {stock}
-                    onChange = {this.onChange}
+                    onChange = {this.changeState}
                 ></input>
-                <select class="login-signup-input" name="categories" value={localStorage.getItem("productCategory")} onChange = {this.onChange}>
+                <select class="login-signup-input" name="categories" value={localStorage.getItem("productCategory")} onChange = {this.changeState}>
                     <option value="Electronics">Electronic</option>
                     <option value="Clothes" selected>Clothes</option>
                     <option value="Furniture">Furniture</option>
@@ -107,21 +96,21 @@ export class EditProduct extends Component {
                     name="description"
                     placeholder="Description"
                     value = {description}
-                    onChange = {this.onChange}
+                    onChange = {this.changeState}
                 ></textarea>
                 <input class="login-signup-input" 
                     type="text"
                     name="image"
                     placeholder="Image URL"
                     value = {image}
-                    onChange = {this.onChange}
+                    onChange = {this.changeState}
                 ></input>
                 <input class="login-signup-input" 
                     type="text"
                     name="user"
                     placeholder="Name of Seller"
                     value = {user}
-                    onChange = {this.onChange}>
+                    onChange = {this.changeState}>
                 </input>
                 
                     <button type="submit" class="login-signup-button" id="button" >Edit</button>
