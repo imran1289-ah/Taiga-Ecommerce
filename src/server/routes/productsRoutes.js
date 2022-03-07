@@ -3,7 +3,7 @@ const router = express.Router();
 const ProductModel = require('../models/products');
 
 //Adds new product into the database
-router.create('/create').post((req,res) => {
+router.route('/create').post((req,res) => {
     ProductModel.save()
         .then(product => {
             name: req.body.name
