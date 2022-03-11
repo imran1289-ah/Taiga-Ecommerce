@@ -9,10 +9,13 @@ import './Productlist.css';
 import { Dropdown } from 'react-bootstrap';
 
 class Bookslist extends Component {
-  state = {
-    products: [],
-  };
-
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      products: [],
+    }
+  }
   componentDidMount() {
     axios.get('http://localhost:9000/products/search').then((response) => {
       console.log(response);
@@ -34,6 +37,7 @@ class Bookslist extends Component {
                   <h4>{product.name}</h4>
                   <p className="price">{product.price} $</p>
                   <p className="stock">{product.stock} in stocks</p>
+                  <p className ="stock">Product seller : {product.user}</p>
                   <p className="description">{product.description}</p>
                   <button class="login-signup-button">Add To Cart</button>
                 </div>

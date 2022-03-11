@@ -31,15 +31,6 @@ function Header() {
               </button>
             </Nav.Link>
 
-            {/* <NavDropdown title="Shop" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Electronics</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Clothes</NavDropdown.Item>
-          <NavDropdown.Item href="#action5">Furnitures</NavDropdown.Item>
-          <NavDropdown.Item href="#action6">Books</NavDropdown.Item>
-          <NavDropdown.Item href="#action7">Food</NavDropdown.Item>
-          <NavDropdown.Item href="#action7">Toys</NavDropdown.Item>
-        </NavDropdown> */}
-
             <Nav.Link href="/Login">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Login
@@ -51,6 +42,15 @@ function Header() {
                 Manage Profile
               </button>
             </Nav.Link>
+
+            <Nav.Link href="/SellerMenu">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                My Products
+              </button>
+            </Nav.Link>
+
+
+
             <Nav.Link href="#action4">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Cart
