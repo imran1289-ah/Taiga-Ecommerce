@@ -74,7 +74,6 @@ const Login = () => {
         setREmail("");
         setRPassword("");
         setRName("");
-        window.location.reload(false);
         setRMessage(rName + " registered successfully");
       } else {
         setRMessage("Some error occured with status " + res.status);
@@ -99,7 +98,7 @@ const Login = () => {
     if (res.status === 200) {
       localStorage.setItem("email", "Not Logged In");
       window.location.reload(false);
-      setMessage("Logged out with success");
+      window.alert("Logged out with success");
     } else if(res.status === 401){
       setMessage('User not logged in');
     } else {
