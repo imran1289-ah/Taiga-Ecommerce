@@ -32,7 +32,9 @@ const Login = () => {
         }),
       });
       if (res.status === 200) {
-        setMessage("Welcome back " + email);
+        localStorage.setItem("email", email);
+        window.location.reload(false);
+        window.alert("Welcome back");
         setPassword("");
         setEmail("");
       } else if(res.status === 400){
@@ -94,7 +96,9 @@ const Login = () => {
           'Content-Type': 'application/json'},
     });
     if (res.status === 200) {
-      setMessage("Logged out with success");
+      localStorage.setItem("email", "Not Logged In");
+      window.location.reload(false);
+      window.alert("Logged out with success");
     } else if(res.status === 401){
       setMessage('User not logged in');
     } else {
@@ -136,7 +140,7 @@ const Login = () => {
                 ></input>
                 <button type="submit" class="login-signup-button">Login</button>
             </form>
-            <div>{message.includes("Welcome back ") ? <button type="logout" class="logout-button" onClick={handleLogout}>Logout</button> : null}</div>
+            <div>{localStorage.email != "Not Logged In" ? <button type="logout" class="logout-button" onClick={handleLogout}>Logout</button> : null}</div>
             <div class="login-message" >{message ? <p>{message}</p> : null}</div>
         </div>
 

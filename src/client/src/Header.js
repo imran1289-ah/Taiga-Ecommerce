@@ -58,13 +58,7 @@ function Header() {
             </Nav.Link>
           </Nav>
           <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-light">Search</Button>
+          <h1>{localStorage.email}</h1>
           </Form>
         </Navbar.Collapse>
       </Container>
