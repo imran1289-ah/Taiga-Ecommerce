@@ -83,7 +83,7 @@ export class SellerMenu extends Component {
                         {
                             products.map(function(product, index){
                                 //Add the name of the seller that is logged in. Will render all products that logged in seller has.
-                                if(product.user == "Imran"){
+                                if(product.user == localStorage.username){
                                     return<tr>
                                             <td >{product.name}</td>
                                             <td >{product.price}</td>
