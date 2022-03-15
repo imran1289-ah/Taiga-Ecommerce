@@ -19,23 +19,19 @@ const Login = () => {
 
 
 
-    // handle POST login data
+
+    // handle GET data from logged in user
     let fetchLoggedInUser = (e) => {
       e.preventDefault();
       try {
         let res = fetch('http://localhost:9000/users/search',{
           method: "GET",
-          // credentials: "include",
-          // withCredentials: true,
-          headers: {
-            // fetch logged in user by email since each user has a unique email identifyier
-            email: localStorage.email,
-          }
+          headers: {email: localStorage.email}
         })
         .then(response => response.json())
         .then(data => {
           localStorage.setItem("username", data[0].name);
-          localStorage.setItem("userType", data[0].userType);
+          localStorage.setItem("usertype", data[0].userType);
         })
         
         
@@ -43,10 +39,6 @@ const Login = () => {
         console.log(err);
       }
     };
-
-
-
-
 
 
 
@@ -67,6 +59,18 @@ const Login = () => {
       });
       if (res.status === 200) {
         localStorage.setItem("email", email);
+
+        // get the currently logged in user info
+        axios.get('http://localhost:9000/users/search', {
+          method: "GET",
+          headers: {email: localStorage.email}
+        })
+        .then(response => 
+          {
+            localStorage.setItem("username", response.data[0].name);
+            localStorage.setItem("usertype", response.data[0].userType);
+          })
+
         window.location.reload(false);
         window.alert("Welcome back");
         setPassword("");
@@ -131,6 +135,9 @@ const Login = () => {
     });
     if (res.status === 200) {
       localStorage.setItem("email", "Not Logged In");
+      localStorage.setItem("username", "");
+      localStorage.setItem("usertype", "Not Logged In");
+    
       window.location.reload(false);
       window.alert("Logged out with success");
     } else if(res.status === 401){
@@ -191,7 +198,7 @@ const Login = () => {
 
 
             {/* LOGOUT */}
-            <div>{localStorage.email != "Not Logged In" ? <button type="logout" class="logout-button" onClick={handleLogout}>Logout</button> : null}</div>
+            <div>{localStorage.email != "Not Logged In" ?  <button type="logout" class="logout-button" onClick={handleLogout}>Logout</button> : null}</div>
             <div class="login-message" >{message ? <p>{message}</p> : null}</div>
         </div>
 

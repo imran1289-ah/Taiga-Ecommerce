@@ -58,7 +58,11 @@ function Header() {
             </Nav.Link>
           </Nav>
           <Form className="d-flex">
-          <h1>{localStorage.email}</h1>
+          <h1>{localStorage.usertype == "Not Logged In"? "You are not logged in": localStorage.usertype + " : " + localStorage.username }
+          
+
+          
+          </h1>
           </Form>
         </Navbar.Collapse>
       </Container>
