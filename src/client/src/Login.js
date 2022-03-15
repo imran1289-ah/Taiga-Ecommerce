@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import './Login.css'
+import axios from 'axios'
 
 
 const Login = () => {
@@ -15,6 +16,39 @@ const Login = () => {
     const [rPassword, setRPassword] = useState('');
     const [rUserType, setRUserType] = useState('');
     const [rMessage, setRMessage] = useState('');
+
+
+
+    // handle POST login data
+    let fetchLoggedInUser = (e) => {
+      e.preventDefault();
+      try {
+        let res = fetch('http://localhost:9000/users/search',{
+          method: "GET",
+          // credentials: "include",
+          // withCredentials: true,
+          headers: {
+            // fetch logged in user by email since each user has a unique email identifyier
+            email: localStorage.email,
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          localStorage.setItem("username", data[0].name);
+          localStorage.setItem("userType", data[0].userType);
+        })
+        
+        
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+
+
+
+
+
 
 // handle POST login data
   let handleSubmitlogin = async (e) => {
@@ -117,7 +151,7 @@ const Login = () => {
 
     <div class="main">
         
-
+      {/* LOG IN */}
         <input type="checkbox" id="chk" aria-hidden="true"></input>
 
         <div class="login">
@@ -140,10 +174,44 @@ const Login = () => {
                 ></input>
                 <button type="submit" class="login-signup-button">Login</button>
             </form>
+            <div>
+              <button onClick={fetchLoggedInUser}>
+                fetchLoggedInUser
+              </button>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            {/* LOGOUT */}
             <div>{localStorage.email != "Not Logged In" ? <button type="logout" class="logout-button" onClick={handleLogout}>Logout</button> : null}</div>
             <div class="login-message" >{message ? <p>{message}</p> : null}</div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* REGISTER */}
         <div class="signup">
             <form onSubmit={handleSubmitregister}>
                 <label for="chk" aria-hidden="true">Sign up</label>
