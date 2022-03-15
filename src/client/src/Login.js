@@ -182,9 +182,10 @@ const Login = () => {
                 <button type="submit" class="login-signup-button">Login</button>
             </form>
             <div>
-              <button onClick={fetchLoggedInUser}>
+              {/* DO NOT REMOVE UNTIL VERY END, THIS IS A TEST BUTTON */}
+              {/* <button onClick={fetchLoggedInUser}>
                 fetchLoggedInUser
-              </button>
+              </button> */}
             </div>
 
 
