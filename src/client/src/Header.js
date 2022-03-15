@@ -15,7 +15,8 @@ function Header() {
       <Container fluid>
         <Navbar.Brand href="#">
           <div className="logo">
-            <img src="./images/logo.jpg" alt="logo"></img>
+            {/* <img src="./images/logo.jpg" alt="logo"></img>  */}
+            <img src="https://cdn-icons-png.flaticon.com/512/2942/2942495.png" alt="logo"></img>
           </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -26,11 +27,24 @@ function Header() {
             navbarScroll
           >
             {/* HOME */}
+
+            {localStorage.usertype == "Seller" ? 
+
+            <Nav.Link href="/">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+              All Products
+              </button>
+            </Nav.Link>
+            :
             <Nav.Link href="/">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Home
               </button>
             </Nav.Link>
+
+            }
+
+            
 
             {/* LOGIN */}
             <Nav.Link href="/Login">

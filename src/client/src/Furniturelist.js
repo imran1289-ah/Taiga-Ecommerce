@@ -40,7 +40,7 @@ class Furniturelist extends Component {
                   <p className="stock">{product.stock} in stocks</p>
                   <p className ="stock">Product seller : {product.user}</p>
                   <p className="description">{product.description}</p>
-                  <button class="login-signup-button">Add To Cart</button>
+                  {localStorage.usertype == "Customer"? <button class="login-signup-button">Add To Cart</button>: null}       
                 </div>
               </div>
             );
