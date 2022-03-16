@@ -97,7 +97,7 @@ function Header() {
             {/* LOGGED IN USER  */}
           </Nav>
           <Form className="d-flex">
-          <h1>{localStorage.usertype == "Not Logged In"? "You are not logged in": localStorage.usertype + " : " + localStorage.username }
+          <h1 class = "welcomeMessage" >{localStorage.usertype == "Not Logged In"? "You are not logged in": localStorage.usertype + " : " + localStorage.username }
           
           </h1>
           </Form>
