@@ -52,6 +52,24 @@ class App extends Component {
                 <Header />
                 <SlideShow />
                 <Types />
+                
+                <h1 class="HomePageLists" >Electronics</h1>
+                <Electronicslist />
+
+                <h1 class="HomePageLists" >Clothes</h1>
+                <Clotheslist />
+
+                <h1 class="HomePageLists" >Furniture</h1>
+                <Furniturelist />
+
+                <h1 class="HomePageLists" >Books</h1>
+                <Bookslist />
+
+                <h1 class="HomePageLists" >Groceries</h1>
+                <Grocerylist />
+
+                <h1 class="HomePageLists" >Toys</h1>
+                <Toyslist />
                 <Footer />
               </>
             }
@@ -65,6 +83,7 @@ class App extends Component {
               </>
             }
           />
+          
           <Route
             path="/Electronicslist"
             element={
@@ -128,6 +147,7 @@ class App extends Component {
               </>
             }
           ></Route>
+          
 
           <Route path="/SellerMenu" element={<><Header/><SellerMenu/><Footer/></>}></Route>
           <Route path="/AddProduct" element={<><Header/><AddProduct/></>}></Route>

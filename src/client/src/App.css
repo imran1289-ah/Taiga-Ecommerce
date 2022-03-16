@@ -4,3 +4,11 @@ body{
 .testConnection{
     color: red;
 }
+.HomePageLists{
+
+	color: #fff;
+	font-size: 4.5em;
+	justify-content: center;
+	display: flex;
+	margin-top: 150px;
+}
