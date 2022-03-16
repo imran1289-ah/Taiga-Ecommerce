@@ -15,7 +15,8 @@ function Header() {
       <Container fluid>
         <Navbar.Brand href="#">
           <div className="logo">
-            <img src="./images/logo.jpg" alt="logo"></img>
+            {/* <img src="./images/logo.jpg" alt="logo"></img>  */}
+            <img src="https://cdn-icons-png.flaticon.com/512/2942/2942495.png" alt="logo"></img>
           </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -25,17 +26,36 @@ function Header() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
+            {/* HOME */}
+
+            {localStorage.usertype == "Seller" ? 
+
+            <Nav.Link href="/">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+              All Products
+              </button>
+            </Nav.Link>
+            :
             <Nav.Link href="/">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Home
               </button>
             </Nav.Link>
 
+            }
+
+            
+
+            {/* LOGIN */}
             <Nav.Link href="/Login">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Login
               </button>
             </Nav.Link>
+
+
+            {/* ADMIN MENU: ONLY ADMIN */}
+            {localStorage.usertype == "Admin" ? 
 
             <Nav.Link href="#action3">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
@@ -43,12 +63,26 @@ function Header() {
               </button>
             </Nav.Link>
 
+            : null
+            }
+            
+
+            {/* SELLER MENU: ONLY SELLER */}
+
+            {localStorage.usertype == "Seller" ? 
+
             <Nav.Link href="/SellerMenu">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 My Products
               </button>
             </Nav.Link>
 
+            : null
+            }
+
+            {/* CART: ONLY CUSTOMMER */}
+
+            {localStorage.usertype == "Customer" ? 
 
 
             <Nav.Link href="#action4">
@@ -56,9 +90,16 @@ function Header() {
                 Cart
               </button>
             </Nav.Link>
+
+            : null
+            }
+
+            {/* LOGGED IN USER  */}
           </Nav>
           <Form className="d-flex">
-          <h1>{localStorage.email}</h1>
+          <h1>{localStorage.usertype == "Not Logged In"? "You are not logged in": localStorage.usertype + " : " + localStorage.username }
+          
+          </h1>
           </Form>
         </Navbar.Collapse>
       </Container>

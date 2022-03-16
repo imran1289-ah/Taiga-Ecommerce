@@ -49,7 +49,7 @@ class Electronicslist extends Component {
 
                             {product.description}
                         </p>
-                        <button class="login-signup-button">Add To Cart</button>
+                        {localStorage.usertype == "Customer"? <button class="login-signup-button">Add To Cart</button>: null}       
                       </div>
                       </div>
                   }

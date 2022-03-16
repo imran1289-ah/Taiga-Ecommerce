@@ -101,6 +101,15 @@ app.listen(port, () => {
     console.log('Taiga server listening on port ' + port);
 });
 
+//Api endpoint for users
+app.get('/users/search', (req, res) => {
+    UserModel.find({email: req.headers.email}, function(err, result){
+        console.log( "legged in user info: " + result);
+          if(err) throw err
+          else res.json(result)
+    })
+});
+
 //Api endpoint for products
 app.get('/products/search', (req, res) => {
     ProductsModel.find({}, function(err, result){
