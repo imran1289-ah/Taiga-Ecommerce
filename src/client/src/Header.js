@@ -85,7 +85,7 @@ function Header() {
             {localStorage.usertype == "Customer" ? 
 
 
-            <Nav.Link href="#action4">
+            <Nav.Link href="/Cart">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Cart
               </button>
