@@ -12,3 +12,12 @@ body{
 	display: flex;
 	margin-top: 150px;
 }
+
+.Titles{
+
+	color: rgb(158, 255, 190);
+	font-size: 3em;
+    justify-content: center;
+	display: flex;
+	margin-left: 100px;
+}
