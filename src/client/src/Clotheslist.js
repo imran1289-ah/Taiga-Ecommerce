@@ -27,6 +27,32 @@ class Clotheslist extends Component {
   render() {
     const { products } = this.state;
 
+
+
+
+            //Api call to add to cart
+            const addToCart = (product) => {
+              let {_id } = product;
+              localStorage.setItem("productID", _id)
+              axios.post("http://localhost:9000/products/AddtoCart/"+localStorage.getItem("productID"), {
+                  method: "POST",
+                  email: localStorage.email
+                  })
+                  .then(response => {
+                      // window.alert(localStorage.email)
+                      
+                  } )
+                  .catch (err => {
+                      window.alert(err)
+                  })
+              
+              localStorage.removeItem("productID")
+              alert("Product "+product.name+" was added to the cart with success!")
+              window.location.reload(false);
+          }
+
+
+
     return (
       <div className="container">
         {products.map(function (product, index) {
@@ -40,7 +66,8 @@ class Clotheslist extends Component {
                   <p className="stock">{product.stock} in stocks</p>
                   <p className ="stock">Product seller : {product.user}</p>
                   <p className="description">{product.description}</p>
-                  {localStorage.usertype == "Customer"? <button class="login-signup-button">Add To Cart</button>: null}       
+                  {localStorage.usertype == "Customer" && !product.inUserCart.includes(localStorage.email)? <button class="login-signup-button" onClick={() => addToCart(product)}>Add To Cart</button>: null}       
+                  {product.inUserCart.includes(localStorage.email)? <h2 class="inCart" >Added to cart ✅</h2>: null}      
                 </div>
               </div>
             );
@@ -50,5 +77,5 @@ class Clotheslist extends Component {
     );
   }
 }
-
+ 
 export default Clotheslist;

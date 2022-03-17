@@ -4,3 +4,27 @@ body{
 .testConnection{
     color: red;
 }
+.HomePageLists{
+
+	color: #fff;
+	font-size: 4.5em;
+	justify-content: center;
+	display: flex;
+	margin-top: 150px;
+}
+
+.Titles{
+
+	color: rgb(158, 255, 190);
+	font-size: 3em;
+    justify-content: center;
+	display: flex;
+	margin-left: 100px;
+}
+.inCart{
+
+	color: rgb(158, 255, 190);
+    justify-content: center;
+	display: flex;
+
+}
