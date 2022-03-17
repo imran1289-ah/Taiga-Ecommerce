@@ -21,3 +21,10 @@ body{
 	display: flex;
 	margin-left: 100px;
 }
+.inCart{
+
+	color: rgb(158, 255, 190);
+    justify-content: center;
+	display: flex;
+
+}
