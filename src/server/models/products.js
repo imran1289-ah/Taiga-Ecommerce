@@ -9,9 +9,7 @@ var ProductsSchema = new Schema({
     image: {type: String, required: true},
     stock: {type: Number, required: true},
     categories: String,
-    user : {type: String, required: true}, 
-    inUserCart: [],
-    // Add user emails array
+    user : {type: String, required: true},
 });
 
 module.exports = mongoose.model('Products', ProductsSchema);

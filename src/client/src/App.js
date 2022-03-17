@@ -19,7 +19,6 @@ import Bookslist from './Bookslist';
 import Grocerylist from './Grocerylist';
 import Toyslist from './Toyslist';
 import SellerMenu from './SellerMenu';
-import Cart from './Cart';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
 
@@ -53,24 +52,6 @@ class App extends Component {
                 <Header />
                 <SlideShow />
                 <Types />
-                
-                <h1 class="HomePageLists" >Electronics</h1>
-                <Electronicslist />
-
-                <h1 class="HomePageLists" >Clothes</h1>
-                <Clotheslist />
-
-                <h1 class="HomePageLists" >Furniture</h1>
-                <Furniturelist />
-
-                <h1 class="HomePageLists" >Books</h1>
-                <Bookslist />
-
-                <h1 class="HomePageLists" >Groceries</h1>
-                <Grocerylist />
-
-                <h1 class="HomePageLists" >Toys</h1>
-                <Toyslist />
                 <Footer />
               </>
             }
@@ -81,11 +62,9 @@ class App extends Component {
               <>
                 <Header />
                 <Login />
-                <Footer />
               </>
             }
           />
-          
           <Route
             path="/Electronicslist"
             element={
@@ -149,10 +128,8 @@ class App extends Component {
               </>
             }
           ></Route>
-          
 
           <Route path="/SellerMenu" element={<><Header/><SellerMenu/><Footer/></>}></Route>
-          <Route path="/Cart" element={<><Header/><Cart/><Footer/></>}></Route>
           <Route path="/AddProduct" element={<><Header/><AddProduct/></>}></Route>
           <Route path="/EditProduct/" element={<><Header/><EditProduct/></>}></Route>
 

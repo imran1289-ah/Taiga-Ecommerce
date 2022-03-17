@@ -85,7 +85,7 @@ function Header() {
             {localStorage.usertype == "Customer" ? 
 
 
-            <Nav.Link href="/Cart">
+            <Nav.Link href="#action4">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Cart
               </button>
@@ -97,7 +97,7 @@ function Header() {
             {/* LOGGED IN USER  */}
           </Nav>
           <Form className="d-flex">
-          <h1 class = "welcomeMessage" >{localStorage.usertype == "Not Logged In"? "You are not logged in": localStorage.usertype + " : " + localStorage.username }
+          <h1>{localStorage.usertype == "Not Logged In"? "You are not logged in": localStorage.usertype + " : " + localStorage.username }
           
           </h1>
           </Form>
