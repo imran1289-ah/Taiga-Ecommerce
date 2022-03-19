@@ -30,8 +30,17 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // Initialize the database connection
-const mongoUrl = 'mongodb://localhost:27017/taiga';
-mongoose.connect(mongoUrl);
+const env = process.env.NODE_ENV || 'development';
+if (env === 'test')
+{
+    process.env.MONGO_URI = 'mongodb://localhost:27017/taiga-test';
+}
+else
+{
+    process.env.MONGO_URI = 'mongodb://localhost:27017/taiga';
+}
+
+mongoose.connect(process.env.MONGO_URI);
 
 // Set up connect-mongo and express-session to track user login sessions
 app.use(session({
@@ -39,7 +48,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-        mongoUrl: mongoUrl
+        mongoUrl: process.env.MONGO_URI
     })
 }));
 
@@ -97,10 +106,6 @@ app.get('/testAPI', (req, res) => {
     res.send('Test from server - connection succesful!');
 });
 
-app.listen(port, () => {
-    console.log('Taiga server listening on port ' + port);
-});
-
 //Api endpoint for users
 app.get('/users/search', (req, res) => {
     UserModel.find({email: req.headers.email}, function(err, result){
@@ -132,7 +137,6 @@ app.get('/products/inUserCart', (req, res) => {
 //Api endpoing for creating/updating/deleting products
 app.use('/products', productRouter);
 
-
-
-
-
+app.listen(port, () => {
+    console.log('Taiga server listening on port ' + port + ' with environment set to ' + env);
+});
