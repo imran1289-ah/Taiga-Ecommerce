@@ -1,9 +1,6 @@
 const request = require('supertest');
 const { expect } = require('chai');
 
-// Test order
-require('./pretest');
-
 describe('When registering a new user', function() {
     describe('Where the email is not already in use', function() {
         it('The registration should be successful', function() {
