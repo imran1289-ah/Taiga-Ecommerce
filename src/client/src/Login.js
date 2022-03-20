@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import './Login.css'
 import axios from 'axios'
@@ -16,9 +15,6 @@ const Login = () => {
     const [rPassword, setRPassword] = useState('');
     const [rUserType, setRUserType] = useState('');
     const [rMessage, setRMessage] = useState('');
-
-
-
 
     // handle GET data from logged in user
     let fetchLoggedInUser = (e) => {
@@ -39,8 +35,6 @@ const Login = () => {
         console.log(err);
       }
     };
-
-
 
 // handle POST login data
   let handleSubmitlogin = async (e) => {
@@ -89,7 +83,6 @@ const Login = () => {
       console.log(err);
     }
   };
-
 
   // handle POST register data
   let handleSubmitregister = async (e) => {
@@ -151,9 +144,6 @@ const Login = () => {
   }
 };
 
-
-
-
   return ( 
 
     <div class="main">
@@ -188,36 +178,10 @@ const Login = () => {
               </button> */}
             </div>
 
-
-
-
-
-
-
-
-
-
-
             {/* LOGOUT */}
             <div>{localStorage.email != "Not Logged In" ?  <button type="logout" class="logout-button" onClick={handleLogout}>Logout</button> : null}</div>
             <div class="login-message" >{message ? <p>{message}</p> : null}</div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         {/* REGISTER */}
         <div class="signup">
@@ -260,10 +224,7 @@ const Login = () => {
                 <div class="register-message">{rMessage ? <p>{rMessage}</p> : null}</div>
             </form>
         </div>
-
     </div>
-
-    
   );
 }
 
