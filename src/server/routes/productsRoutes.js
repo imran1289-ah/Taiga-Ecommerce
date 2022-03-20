@@ -16,7 +16,10 @@ router.route('/create').post((req,res) => {
 
 
     NewProduct.save()
-        .then(() => console.log("Product was sucessful added"))
+        .then(() => {
+            console.log("Product was sucessful added");
+            res.end();
+        })
         .catch(error => console.log(error));
 });
 
@@ -33,7 +36,10 @@ router.route('/update/:id').post((req,res) => {
             product.user =  req.body.user
 
             product.save()
-                .then(() => console.log("Product was updated in the database"))
+                .then(() => {
+                    console.log("Product was updated in the database");
+                    res.end();
+                })
                 .catch(error => console.log(error));
             
         } )
@@ -43,7 +49,10 @@ router.route('/update/:id').post((req,res) => {
 //Delete product from the database
 router.route('/delete/:id').delete((req,res) => {
     ProductModel.findByIdAndDelete(req.params.id)
-        .then(() => console.log("Product Deleted in the database"))
+        .then(() => {
+            console.log("Product Deleted in the database");
+            res.end();
+        })
         .catch(error => console.log("Error"));
 })
 
