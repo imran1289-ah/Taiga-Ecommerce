@@ -17,7 +17,6 @@ jobs:
     docker:
       - image: cimg/node:16.10
       - image: mongo:focal
-        port: 27017:27017
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
