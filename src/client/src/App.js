@@ -22,6 +22,8 @@ import SellerMenu from './SellerMenu';
 import Cart from './Cart';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
+import AdminMenu from './AdminMenu';
+import EditUser from './EditUser';
 
 
 class App extends Component {
@@ -155,6 +157,26 @@ class App extends Component {
           <Route path="/Cart" element={<><Header/><Cart/><Footer/></>}></Route>
           <Route path="/AddProduct" element={<><Header/><AddProduct/></>}></Route>
           <Route path="/EditProduct/" element={<><Header/><EditProduct/></>}></Route>
+
+          <Route 
+            path="/AdminMenu"
+            element={
+              <>
+                <Header></Header>
+                <AdminMenu></AdminMenu>
+              </>
+            }
+           ></Route> 
+
+          <Route 
+            path="/EditUser/" 
+            element={
+              <>
+                <Header/>
+                <EditUser/>
+              </>
+            }>
+          </Route>
 
         </Routes>
 
