@@ -32,17 +32,23 @@ export class AdminMenu extends Component {
 
         //Adding all of the products into the local storage once seller edits a product
         const saveUser = (user) => {
-            let {name, email, userType } = user;
+            let {name, email, userType, _id } = user;
             localStorage.setItem("userName", name);
             localStorage.setItem("userEmail", email);
-            localStorage.setItem("userType", userType);            
+            localStorage.setItem("userType", userType);
+            localStorage.setItem("userID", _id );            
+        }
+
+        const saveUserID = (user) => {
+            let {_id} = user;
+            localStorage.setItem("userID", _id);
         }
 
         //Api call to ban selected user
-        const deleteUser = (user) => {
+        const BanUser = (user) => {
             let {_id, name} = user
             localStorage.setItem("userID", _id)
-            axios.delete("http://localhost:9000/admin/delete/"+localStorage.getItem("userID"))
+            axios.delete("http://localhost:9000/admin/ban/"+localStorage.getItem("userID"))
                 .then(response => {
                     console.log(response.data)
                 } )
@@ -82,8 +88,8 @@ export class AdminMenu extends Component {
                                             <td >{user.name}</td>
                                             <td >{user.email}</td>
                                             <td >
-                                                <Link to="/EditUser">
-                                                    <button type="submit" class="login-signup-button" onClick={() => saveUser(user)}>
+                                                <Link to="/ChangePassword">
+                                                    <button type="submit" class="login-signup-button" onClick={() => saveUserID(user)}>
                                                         Change Password
                                                     </button>
                                                 </Link>
@@ -96,7 +102,7 @@ export class AdminMenu extends Component {
                                                     </button>
                                                 </Link>
                                                 
-                                                <button type="sumbit" class="delete-button" onClick={() => deleteUser(user)}>
+                                                <button type="sumbit" class="delete-button" onClick={() => BanUser(user)}>
                                                     Ban
                                                 </button>
                                             </td>
@@ -109,7 +115,7 @@ export class AdminMenu extends Component {
             </div>
             
             {/* Button for seller to Add a user */}
-            <NavLink href="/AddProduct">
+            <NavLink href="/AddUser">
                 <button type="submit" class="login-signup-button">
                     Add New User
                 </button>

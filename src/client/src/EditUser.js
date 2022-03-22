@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export class EditUser extends Component {
     
-    //State property which will contain all the information of the product that is being eddited
+    //State property which will contain all the information of the user that is being eddited
     constructor(props) {
       super(props)
     
@@ -21,7 +21,7 @@ export class EditUser extends Component {
         this.setState({[event.target.name]: event.target.value})
     }
 
-    //Api call to edit product
+    //Api call to edit user
     submitForm = event => {
         event.preventDefault() //No page refresh
         console.log(this.state)
@@ -67,7 +67,7 @@ export class EditUser extends Component {
                     value = {email}
                     onChange = {this.changeState}
                 ></input>
-               <select class="login-signup-input" name="usertype" value={localStorage.getItem("userType")} onChange = {this.changeState}>
+               <select class="login-signup-input" name="userType" value={userType} onChange = {this.changeState}>
                     <option value="Customer">Customer</option>
                     <option value="Seller">Seller</option>
                     <option value="Admin">Admin</option>
