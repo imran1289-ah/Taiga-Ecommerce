@@ -3,6 +3,7 @@ const router = express.Router();
 const UserModel = require('../models/user');
 const auth = require('../auth');
 
+//Search all the user's in the database
 router.route('/search').get((req, res) => {
     UserModel.find({},
         function(err, result){
@@ -11,6 +12,7 @@ router.route('/search').get((req, res) => {
     })
 })
 
+//Ban a user
 router.route('/ban/:id').delete((req,res) => {
     UserModel.findByIdAndDelete(req.params.id)
         .then(() => {
@@ -20,6 +22,7 @@ router.route('/ban/:id').delete((req,res) => {
         .catch(error => console.log("Error"));
 })
 
+//Update user's information
 router.route('/update/:id').post((req,res) => {
     UserModel.findByIdAndUpdate(req.params.id)
         .then(user => {
@@ -38,6 +41,8 @@ router.route('/update/:id').post((req,res) => {
         .catch(error => res.json("Error finding user"))
 });
 
+
+//Update user's password
 router.route('/updatePassword/:id').post((req,res) => {
     UserModel.findByIdAndUpdate(req.params.id)
         .then(user => {

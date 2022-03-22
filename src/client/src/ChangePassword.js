@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export class ChangePassword extends Component {
     
-    //State property which will contain all the information of the user 
+    //State property which will contain all the password of the user
     constructor(props) {
         super(props)
       
@@ -19,7 +19,7 @@ export class ChangePassword extends Component {
         this.setState({[event.target.name]: event.target.value})
     }
 
-    //Api call to edit user
+    //Api call to edit user password
     submitForm = event => {
         event.preventDefault() //No page refresh
         console.log(this.state)

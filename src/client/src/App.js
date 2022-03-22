@@ -155,8 +155,8 @@ class App extends Component {
           ></Route>
           
 
-          <Route path="/SellerMenu" element={<><Header/><SellerMenu/><Footer/></>}></Route>
-          <Route path="/Cart" element={<><Header/><Cart/><Footer/></>}></Route>
+          <Route path="/SellerMenu" element={<><Header/><SellerMenu/></>}></Route>
+          <Route path="/Cart" element={<><Header/><Cart/></>}></Route>
           <Route path="/AddProduct" element={<><Header/><AddProduct/></>}></Route>
           <Route path="/EditProduct/" element={<><Header/><EditProduct/></>}></Route>
 
