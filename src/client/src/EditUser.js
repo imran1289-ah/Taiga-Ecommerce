@@ -54,14 +54,6 @@ export class EditUser extends Component {
             <form onSubmit={this.submitForm}>
                 <input class="login-signup-input" 
                     type="text"
-                    name="name"
-                    placeholder="Name"
-                    value = {name}
-                    onChange = {this.changeState}>
-                        
-                </input>
-                <input class="login-signup-input" 
-                    type="text"
                     name="email"
                     placeholder="Email"
                     value = {email}

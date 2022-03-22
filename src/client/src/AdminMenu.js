@@ -72,7 +72,6 @@ export class AdminMenu extends Component {
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>Name</th>
                             <th>Email</th>
                             <th>Pasword</th>
                             <th>Type</th>
@@ -85,7 +84,6 @@ export class AdminMenu extends Component {
                                 //Add the name of the seller that is logged in. Will render all products that logged in seller has.
                                 if(user.userType=="Customer" || user.userType == "Seller"){
                                     return<tr>
-                                            <td >{user.name}</td>
                                             <td >{user.email}</td>
                                             <td >
                                                 <Link to="/ChangePassword">
