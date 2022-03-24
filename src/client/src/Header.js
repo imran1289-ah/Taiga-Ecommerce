@@ -53,6 +53,12 @@ function Header() {
               </button>
             </Nav.Link>
 
+            <Nav.Link href="/FilterProducts">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                Filter Products
+              </button>
+            </Nav.Link>
+
 
             {/* ADMIN MENU: ONLY ADMIN */}
             {localStorage.usertype == "Admin" ? 

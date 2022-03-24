@@ -26,6 +26,7 @@ import AdminMenu from './AdminMenu';
 import EditUser from './EditUser';
 import ChangePassword from './ChangePassword';
 import AddUser from './AddUser'
+import FilterProducts from './FilterProducts';
 
 
 class App extends Component {
@@ -196,6 +197,16 @@ class App extends Component {
               <>
                 <Header/>
                 <AddUser/>
+              </>
+            }>
+          </Route>
+
+          <Route
+            path="/FilterProducts"
+            element={
+              <>
+                <Header/>
+                <FilterProducts/>
               </>
             }>
           </Route>
