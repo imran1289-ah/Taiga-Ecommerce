@@ -20,13 +20,7 @@ export class FilterProducts extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   axios.get('http://localhost:9000/products/search').then((response) => {
-  //     console.log(response);
-  //     this.setState({ products: response.data });
-  //   });
-  // }
-
+  // Submit button that will filter products
   submitFilter = event => {
     event.preventDefault()
     axios.get('http://localhost:9000/products/search').then((response) => {
@@ -91,7 +85,7 @@ export class FilterProducts extends Component {
             <button style={{width: 500}} type="submit" class="login-signup-button">Filter</button>
           </form>
 
-          
+          {/* Rendering the filter products  */}
           <div className="container">
           {
             products.map(function(product, index){
@@ -111,16 +105,11 @@ export class FilterProducts extends Component {
                         {product.inUserCart.includes(localStorage.email)? <h2 class="inCart" >Added to cart ✅</h2>: null}       
 
                       </div>
-                      </div>
-                  
+                      </div>       
             })
           }  
           </div> 
-          
-
-          
-
-</div>
+    </div>
     )
   }
 }
