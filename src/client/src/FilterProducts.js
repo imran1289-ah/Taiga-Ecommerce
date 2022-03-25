@@ -11,11 +11,58 @@ import './FilterProducts.css';
 
 
 export class FilterProducts extends Component {
-  render() {
-    
+  
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      products: [],
+    }
+  }
 
-    
-    
+  // componentDidMount() {
+  //   axios.get('http://localhost:9000/products/search').then((response) => {
+  //     console.log(response);
+  //     this.setState({ products: response.data });
+  //   });
+  // }
+
+  submitFilter = event => {
+    event.preventDefault()
+    axios.get('http://localhost:9000/products/search').then((response) => {
+      console.log(response);
+      this.setState({ products: response.data.filter(product => product.categories ==  document.querySelector('input[name = "category"]:checked').value ) });
+      
+    });
+  }
+
+  render() {
+
+    const {products} = this.state
+
+    //Api call to add to cart
+    const addToCart = (product) => {
+      let {_id } = product;
+      localStorage.setItem("productID", _id)
+      axios.post("http://localhost:9000/products/AddtoCart/"+localStorage.getItem("productID"), {
+          method: "POST",
+          email: localStorage.email
+          })
+          .then(response => {
+              // window.alert(localStorage.email)
+              
+          } )
+          .catch (err => {
+              window.alert(err)
+          })
+      
+      localStorage.removeItem("productID")
+      alert("Product "+product.name+" was added to the cart with success!")
+      window.location.reload(false);
+  }
+
+  
+     
     return (
       <div>
           <br></br>
@@ -23,31 +70,57 @@ export class FilterProducts extends Component {
               Filter products
           </h1>
           
-          <form>
+          <form onSubmit={this.submitFilter}>
           {/* A checkbox for categories */}
           <div className="categoryCheckbox">
-            <input type="checkbox" id="electronics" name="electronics" value="Electronics"/> Electronics
-            <input type="checkbox" id="clothes" name="clothes" value="Clothes"/> Clothes
-            <input type="checkbox" id="furniture" name="furniture" value="Furniture"/> Furniture
-            <input type="checkbox" id="books" name="books" value="Books"/> Books
-            <input type="checkbox" id="grocery" name="grocery" value="Grocery"/> Grocery
-            <input type="checkbox" id="toys" name="toys" value="Toys"/> Toys
+            <input type="radio" id="category" name="category"  value="Electronics"/> Electronics
+            <input type="radio" id="category" name="category"  value="Clothes"/> Clothes
+            <input type="radio" id="category" name="category"  value="Furniture"/> Furniture
+            <input type="radio" id="category" name="category"  value="Books"/> Books
+            <input type="radio" id="category" name="category"  value="Grocery"/> Grocery
+            <input type="radio" id="category" name="category" value="Toys"/> Toys
           </div>
 
           <br/>
 
           {/* Max Price and Min Price slider */}
           <div className='priceSlider'>
-            <input type="text" name="minPrice" placeholder="Enter Minimum Price"></input>
-            <input type="text" name="maxPrice" placeholder="Enter Max Price"></input>
+            <input type="text" id="minPrice" placeholder="Enter Minimum Price"></input>
+            <input type="text" id="maxPrice" placeholder="Enter Max Price"></input>
           </div>
             <button style={{width: 500}} type="submit" class="login-signup-button">Filter</button>
           </form>
 
           
+          <div className="container">
+          {
+            products.map(function(product, index){
+              
+                return<div className="box" data-aos="fade">
+                      <img src={product.image}></img>
+                      <div className="product">
+                        <h4>{product.name}</h4>
+                        <p className="price">{product.price} $</p>
+                        <p className="stock">{product.stock} in stocks</p>
+                        <p className ="stock">Product seller : {product.user}</p>
+                        <p className="description">
+
+                            {product.description}
+                        </p>
+                        {localStorage.usertype == "Customer" && !product.inUserCart.includes(localStorage.email)? <button class="login-signup-button" onClick={() => addToCart(product)}>Add To Cart</button>: null}       
+                        {product.inUserCart.includes(localStorage.email)? <h2 class="inCart" >Added to cart ✅</h2>: null}       
+
+                      </div>
+                      </div>
+                  
+            })
+          }  
+          </div> 
+          
 
           
-      </div>
+
+</div>
     )
   }
 }
