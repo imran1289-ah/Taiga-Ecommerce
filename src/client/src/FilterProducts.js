@@ -31,7 +31,7 @@ export class FilterProducts extends Component {
     event.preventDefault()
     axios.get('http://localhost:9000/products/search').then((response) => {
       console.log(response);
-      this.setState({ products: response.data.filter(product => product.categories ==  document.querySelector('input[name = "category"]:checked').value ) });
+      this.setState({ products: response.data.filter(product => product.categories ==  document.querySelector('input[name = "category"]:checked').value && ( (product.price >= parseInt(document.getElementById("minPrice").value) && (product.price <= parseInt(document.getElementById("maxPrice").value)) ) ))});
       
     });
   }
