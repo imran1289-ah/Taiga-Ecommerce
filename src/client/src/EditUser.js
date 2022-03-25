@@ -62,7 +62,6 @@ export class EditUser extends Component {
                <select class="login-signup-input" name="userType" value={userType} onChange = {this.changeState}>
                     <option value="Customer">Customer</option>
                     <option value="Seller">Seller</option>
-                    <option value="Admin">Admin</option>
                 </select>
                 <button type="submit" class="login-signup-button" id="button" >Edit</button>
                 
