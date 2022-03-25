@@ -27,9 +27,7 @@ function Header() {
             navbarScroll
           >
             {/* HOME */}
-
             {localStorage.usertype == "Seller" ? 
-
             <Nav.Link href="/">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
               All Products
@@ -41,10 +39,7 @@ function Header() {
                 Home
               </button>
             </Nav.Link>
-
             }
-
-            
 
             {/* LOGIN */}
             <Nav.Link href="/Login">
@@ -53,53 +48,41 @@ function Header() {
               </button>
             </Nav.Link>
 
-
             {/* ADMIN MENU: ONLY ADMIN */}
             {localStorage.usertype == "Admin" ? 
-
             <Nav.Link href="#action3">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Manage Profile
               </button>
             </Nav.Link>
-
             : null
             }
             
-
             {/* SELLER MENU: ONLY SELLER */}
-
             {localStorage.usertype == "Seller" ? 
-
             <Nav.Link href="/SellerMenu">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 My Products
               </button>
             </Nav.Link>
-
             : null
             }
 
             {/* CART: ONLY CUSTOMMER */}
-
             {localStorage.usertype == "Customer" ? 
-
-
             <Nav.Link href="/Cart">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Cart
               </button>
             </Nav.Link>
-
             : null
             }
 
             {/* LOGGED IN USER  */}
           </Nav>
           <Form className="d-flex">
-          <h1 class = "welcomeMessage" >{localStorage.usertype == "Not Logged In"? "You are not logged in": localStorage.usertype + " : " + localStorage.username }
-          
-          </h1>
+            <h1 class = "welcomeMessage" >{localStorage.usertype == "Not Logged In"? "You are not logged in": localStorage.usertype + " : " + localStorage.username }
+            </h1>
           </Form>
         </Navbar.Collapse>
       </Container>

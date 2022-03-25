@@ -5,7 +5,6 @@ body{
     color: red;
 }
 .HomePageLists{
-
 	color: #fff;
 	font-size: 4.5em;
 	justify-content: center;
@@ -14,7 +13,6 @@ body{
 }
 
 .Titles{
-
 	color: rgb(158, 255, 190);
 	font-size: 3em;
     justify-content: center;
@@ -22,9 +20,7 @@ body{
 	margin-left: 100px;
 }
 .inCart{
-
 	color: rgb(158, 255, 190);
     justify-content: center;
 	display: flex;
-
 }
