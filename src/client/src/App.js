@@ -57,24 +57,30 @@ class App extends Component {
               <>
                 <Header />
                 <SlideShow />
-                <Types />
+                <Types id="Top" />
                 
-                <h1 class="HomePageLists" >Electronics</h1>
+                <h1 id="Electronics" class="HomePageLists" >Electronics </h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Electronicslist />
 
-                <h1 class="HomePageLists" >Clothes</h1>
+                <h1 id="Clothes" class="HomePageLists" >Clothes</h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Clotheslist />
 
-                <h1 class="HomePageLists" >Furniture</h1>
+                <h1 id="Furniture" class="HomePageLists" >Furniture</h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Furniturelist />
 
-                <h1 class="HomePageLists" >Books</h1>
+                <h1 id="Books" class="HomePageLists" >Books</h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Bookslist />
 
-                <h1 class="HomePageLists" >Groceries</h1>
+                <h1 id="Groceries" class="HomePageLists" >Groceries</h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Grocerylist />
 
-                <h1 class="HomePageLists" >Toys</h1>
+                <h1 id="Toys" class="HomePageLists" >Toys</h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Toyslist />
                 <Footer />
               </>
