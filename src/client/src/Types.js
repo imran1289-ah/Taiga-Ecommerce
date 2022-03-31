@@ -17,7 +17,7 @@ export default function Types() {
     <>
       {/* Images that can link to the categories of products */}
       {/* First row */}
-      <Container id="Top">
+      <Container>
         <Row>
           <Col sm>
             <div className="column_top">

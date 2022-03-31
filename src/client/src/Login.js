@@ -171,12 +171,7 @@ const Login = () => {
                 ></input>
                 <button type="submit" class="login-signup-button">Login</button>
             </form>
-            <div>
-              {/* DO NOT REMOVE UNTIL VERY END, THIS IS A TEST BUTTON */}
-              {/* <button onClick={fetchLoggedInUser}>
-                fetchLoggedInUser
-              </button> */}
-            </div>
+            
 
             {/* LOGOUT */}
             <div>{localStorage.email != "Not Logged In" ?  <button type="logout" class="logout-button" onClick={handleLogout}>Logout</button> : null}</div>
