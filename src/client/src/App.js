@@ -23,8 +23,10 @@ import Cart from './Cart';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
 import AdminMenu from './AdminMenu';
+import ManageUserProfile from './ManageUserProfile';
 import EditUser from './EditUser';
 import ChangePassword from './ChangePassword';
+import ChangeMyPassword from './ChangeMyPassword';
 import AddUser from './AddUser'
 import FilterProducts from './FilterProducts';
 
@@ -180,6 +182,16 @@ class App extends Component {
            ></Route> 
 
           <Route 
+            path="/ManageUserProfile"
+            element={
+              <>
+                <Header></Header>
+                <ManageUserProfile></ManageUserProfile>
+              </>
+            }
+           ></Route> 
+
+          <Route 
             path="/EditUser/" 
             element={
               <>
@@ -195,6 +207,16 @@ class App extends Component {
               <>
                 <Header/>
                 <ChangePassword/>
+              </>
+            }>
+          </Route>
+
+          <Route 
+            path="/ChangeMyPassword"
+            element={
+              <>
+                <Header/>
+                <ChangeMyPassword/>
               </>
             }>
           </Route>
