@@ -14,6 +14,7 @@ const userRouter = require('./routes/userRoutes');
 const UserModel = require('./models/user');
 const ProductsModel = require('./models/products');
 const productRouter = require('./routes/productsRoutes');
+const adminRouter = require('./routes/adminRoutes');
 
 // React runs on port 3000 by default
 const port = 9000;
@@ -134,8 +135,13 @@ app.get('/products/inUserCart', (req, res) => {
 });
 
 
+
+
 //Api endpoing for creating/updating/deleting products
 app.use('/products', productRouter);
+
+//Api endpoint for creating/updating/deleting users
+app.use('/admin', adminRouter);
 
 app.listen(port, () => {
     console.log('Taiga server listening on port ' + port + ' with environment set to ' + env);

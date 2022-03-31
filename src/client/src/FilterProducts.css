@@ -1,0 +1,14 @@
+.categoryCheckbox{
+    text-align: center;
+    color:white;
+
+}
+
+.categoryCheckbox input{
+    margin-left: 3px;
+}
+
+.priceSlider{
+    text-align: center;
+}
+

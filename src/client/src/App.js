@@ -22,6 +22,11 @@ import SellerMenu from './SellerMenu';
 import Cart from './Cart';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
+import AdminMenu from './AdminMenu';
+import EditUser from './EditUser';
+import ChangePassword from './ChangePassword';
+import AddUser from './AddUser'
+import FilterProducts from './FilterProducts';
 
 
 class App extends Component {
@@ -153,47 +158,61 @@ class App extends Component {
             }
           ></Route>
           
+          <Route path="/SellerMenu" element={<><Header/><SellerMenu/></>}></Route>
+          <Route path="/Cart" element={<><Header/><Cart/></>}></Route>
+          <Route path="/AddProduct" element={<><Header/><AddProduct/></>}></Route>
+          <Route path="/EditProduct/" element={<><Header/><EditProduct/></>}></Route>
+
           <Route 
-            path="/SellerMenu" 
+            path="/AdminMenu"
+            element={
+              <>
+                <Header></Header>
+                <AdminMenu></AdminMenu>
+              </>
+            }
+           ></Route> 
+
+          <Route 
+            path="/EditUser/" 
             element={
               <>
                 <Header/>
-                <SellerMenu/>
-                <Footer/>
+                <EditUser/>
               </>
             }>
           </Route>
-          
+
           <Route 
-            path="/Cart" 
+            path="/ChangePassword"
             element={
               <>
                 <Header/>
-                <Cart/>
-                <Footer/>
-                </>
-              }>
-          </Route>
-          
-          <Route 
-            path="/AddProduct" 
-            element={
-              <>
-                <Header/>
-                <AddProduct/>
-                </>
-              }>
-          </Route>
-          
-          <Route 
-            path="/EditProduct/" 
-            element={
-              <>
-              <Header/>
-              <EditProduct/>
+                <ChangePassword/>
               </>
             }>
           </Route>
+
+          <Route 
+            path="/AddUser"
+            element={
+              <>
+                <Header/>
+                <AddUser/>
+              </>
+            }>
+          </Route>
+
+          <Route
+            path="/FilterProducts"
+            element={
+              <>
+                <Header/>
+                <FilterProducts/>
+              </>
+            }>
+          </Route>
+
         </Routes>
       </BrowserRouter>
     );

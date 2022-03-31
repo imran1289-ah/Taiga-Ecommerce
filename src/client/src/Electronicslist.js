@@ -26,8 +26,6 @@ class Electronicslist extends Component {
   }
 
   
-  
-  
   render() {
     const {products} = this.state
 

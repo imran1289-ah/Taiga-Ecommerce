@@ -50,7 +50,9 @@ function Header() {
 
             {/* ADMIN MENU: ONLY ADMIN */}
             {localStorage.usertype == "Admin" ? 
-            <Nav.Link href="#action3">
+
+            <Nav.Link href="/AdminMenu">
+
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Manage Profile
               </button>
