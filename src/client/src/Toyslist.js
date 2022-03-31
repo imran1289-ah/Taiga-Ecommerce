@@ -27,11 +27,6 @@ class Toyslist extends Component {
 
   render() {
     const { products } = this.state;
-
-
-
-
-
             //Api call to add to cart
             const addToCart = (product) => {
               let {_id } = product;

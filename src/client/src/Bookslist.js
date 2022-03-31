@@ -26,9 +26,6 @@ class Bookslist extends Component {
   render() {
     const { products } = this.state;
 
-
-
-
             //Api call to add to cart
             const addToCart = (product) => {
               let {_id } = product;
@@ -48,7 +45,7 @@ class Bookslist extends Component {
               localStorage.removeItem("productID")
               alert("Product "+product.name+" was added to the cart with success!")
               window.location.reload(false);
-          }
+            }
 
 
     return (

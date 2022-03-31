@@ -75,9 +75,6 @@ export class Cart extends Component {
             window.location.reload(false);
         }
 
-        
-        
-
         return (
         <div>
             <br></br>
@@ -115,14 +112,12 @@ export class Cart extends Component {
                                             Remove Item
                                         </button>
                                     </td>
-                                        </tr> 
-                                
+                                    </tr> 
                             })
                         }
                     </tbody>
                 </Table>
             </div>
-            
         </div>
         )
     }

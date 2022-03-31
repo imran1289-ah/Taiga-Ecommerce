@@ -6,6 +6,7 @@ import { Col } from 'react-bootstrap';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
 
 export default function Types() {
   useEffect(() => {
@@ -14,6 +15,8 @@ export default function Types() {
 
   return (
     <>
+      {/* Images that can link to the categories of products */}
+      {/* First row */}
       <Container>
         <Row>
           <Col sm>
@@ -52,6 +55,7 @@ export default function Types() {
         </Row>
       </Container>
 
+      {/* Second row */}
       <Container>
         <Row>
           <Col sm>

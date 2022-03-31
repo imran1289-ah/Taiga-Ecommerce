@@ -80,6 +80,7 @@ class App extends Component {
               </>
             }
           />
+          
           <Route
             path="/login"
             element={
@@ -96,34 +97,34 @@ class App extends Component {
             element={
               <>
                 <Header />
-
                 <Electronicslist />
                 <Footer />
               </>
             }
           ></Route>
+          
           <Route
             path="/Clotheslist"
             element={
               <>
                 <Header />
-
                 <Clotheslist />
                 <Footer />
               </>
             }
           ></Route>
+          
           <Route
             path="/Furniturelist"
             element={
               <>
                 <Header />
-
                 <Furniturelist />
                 <Footer />
               </>
             }
           ></Route>
+          
           <Route
             path="/Bookslist"
             element={
@@ -134,6 +135,7 @@ class App extends Component {
               </>
             }
           ></Route>
+          
           <Route
             path="/Grocerylist"
             element={
@@ -144,6 +146,7 @@ class App extends Component {
               </>
             }
           ></Route>
+          
           <Route
             path="/Toyslist"
             element={
@@ -155,7 +158,6 @@ class App extends Component {
             }
           ></Route>
           
-
           <Route path="/SellerMenu" element={<><Header/><SellerMenu/></>}></Route>
           <Route path="/Cart" element={<><Header/><Cart/></>}></Route>
           <Route path="/AddProduct" element={<><Header/><AddProduct/></>}></Route>
@@ -212,9 +214,6 @@ class App extends Component {
           </Route>
 
         </Routes>
-
-        
-
       </BrowserRouter>
     );
   }

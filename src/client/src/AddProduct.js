@@ -93,14 +93,7 @@ export class AddProduct extends Component {
                     value = {image}
                     onChange = {this.changeState}
                 ></input>
-                {/* <input class="login-signup-input" 
-                    type="text"
-                    name="user"
-                    placeholder="Name of Seller"
-                    value = {user}
-                    onChange = {this.changeState}>
-                </input> */}
-                <button type="submit" class="login-signup-button" id="button">Add product</button>
+               <button type="submit" class="login-signup-button" id="button">Add product</button>
             </form>
       </div>
     )
