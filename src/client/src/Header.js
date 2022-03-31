@@ -80,6 +80,16 @@ function Header() {
             : null
             }
 
+            {/* CART: ONLY CUSTOMMER */}
+            {localStorage.usertype == "Customer" ? 
+            <Nav.Link href="/ManageUserProfile">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                Manage My Profile
+              </button>
+            </Nav.Link>
+            : null
+            }
+
             {/* LOGGED IN USER  */}
           </Nav>
           <Form className="d-flex">
