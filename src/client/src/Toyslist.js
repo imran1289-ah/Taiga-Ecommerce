@@ -5,7 +5,7 @@ import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import './Productlist.css';
+import './Toyslist.css';
 import { Dropdown } from 'react-bootstrap';
 
 class Toyslist extends Component {
