@@ -27,8 +27,8 @@ h3{
 	justify-content: center;
 	display: block;
 	color: #fff;
-	background: red;
-	font-size: 12px;
+	background: #a32323;
+	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;
 	outline: none;
@@ -37,4 +37,6 @@ h3{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-
+.delete-button:hover{
+	background: #7c1717;
+}

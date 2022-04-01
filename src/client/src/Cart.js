@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './SellerMenu.css'
 import Table from 'react-bootstrap/Table';
 import axios from 'axios'
-import './Login.css'
+import './Cart.css'
 import { Nav, NavLink } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
@@ -120,11 +120,11 @@ export class Cart extends Component {
                                     <td>
                                         
 
-                                        <button type="sumbit" class="login-signup-button" onClick={() => buyItem(product)}>
+                                        <button type="sumbit" class="button" onClick={() => buyItem(product)}>
                                             Buy Item
                                         </button>
 
-                                        <button type="sumbit" class="delete-button" onClick={() => removeProduct(product)}>
+                                        <button type="sumbit" class="remove-button" onClick={() => removeProduct(product)}>
                                             Remove Item
                                         </button>
                                     </td>
