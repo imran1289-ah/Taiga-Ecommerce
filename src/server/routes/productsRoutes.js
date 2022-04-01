@@ -61,7 +61,7 @@ router.route('/removeFromCart/:id').post((req,res) => {
     ProductModel.findById(req.params.id)
     .then(product => {
 
-        const index = product.inUserCart.indexOf(req.body.email);
+        const index = product.inUserCart.indexOf(req.body.myUserId);
         if (index > -1) {
             product.inUserCart.splice(index, 1); // 2nd parameter means remove one item only
         }
@@ -78,9 +78,7 @@ router.route('/AddtoCart/:id').post((req,res) => {
     console.log("Adding to cart");
     ProductModel.findByIdAndUpdate(req.params.id)
     .then(product => {
-        product.inUserCart.push(req.body.email);
-
-        
+        product.inUserCart.push(req.body.myUserId);
         product.save()
             .then(() => console.log("Product was updated in the database"))
             .catch(error => console.log(error));

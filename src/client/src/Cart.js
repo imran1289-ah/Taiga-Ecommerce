@@ -22,7 +22,7 @@ export class Cart extends Component {
         axios.get("http://localhost:9000/products/inUserCart",
         {
             method: "GET",
-            headers: {email: localStorage.email}
+            headers: {myUserId: localStorage.myUserId}
           })
           .then(response => {
             //window.alert(response.data[0].inUserCart);// test purposes >:)
@@ -40,7 +40,7 @@ export class Cart extends Component {
             localStorage.setItem("productID", _id)
             axios.post("http://localhost:9000/products/removeFromCart/"+localStorage.getItem("productID"), {
                 method: "POST",
-                email: localStorage.email
+                myUserId: localStorage.myUserId
               })
                 .then(response => {
                     window.alert(localStorage.email)
@@ -61,7 +61,7 @@ export class Cart extends Component {
             localStorage.setItem("productID", _id)
             axios.post("http://localhost:9000/products/removeFromCart/"+localStorage.getItem("productID"), {
                 method: "POST",
-                email: localStorage.email
+                myUserId: localStorage.myUserId
                 })
                 .then(response => {
                     window.alert(localStorage.email)

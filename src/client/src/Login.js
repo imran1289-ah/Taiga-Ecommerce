@@ -63,6 +63,7 @@ const Login = () => {
           {
             localStorage.setItem("username", response.data[0].name);
             localStorage.setItem("usertype", response.data[0].userType);
+            localStorage.setItem("myUserId", response.data[0]._id);
           })
 
         window.location.reload(false);
