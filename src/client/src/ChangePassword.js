@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import './Login.css'
+import './ChangePassword.css'
 import axios from 'axios'
 
 
@@ -43,18 +43,18 @@ export class ChangePassword extends Component {
     
     return (
         //Form for the admin to edit user's password
-        <div class="login">
+        <div class="change-password">
             <br></br>
             <h3>Edit a User's Password</h3>
             <form onSubmit={this.submitForm}>
-                <input class="login-signup-input" 
+                <input class="input" 
                     type="text"
                     name="hashedPassword"
                     placeholder="Enter new password"
                     value = {hashedPassword}
                     onChange = {this.changeState}>
                 </input>
-                <button type="submit" class="login-signup-button" id="button" >Edit Password</button>
+                <button type="submit" class="button" id="button" >Edit Password</button>
             </form>
       </div>
     )
