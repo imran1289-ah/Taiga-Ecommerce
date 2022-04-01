@@ -80,11 +80,21 @@ function Header() {
             : null
             }
 
-            {/* CART: ONLY CUSTOMMER */}
-            {localStorage.usertype == "Customer" ? 
+            {/* MANAGEUSERPROFILE: ONLY CUSTOMMER AND SELLER */}
+            {localStorage.usertype == "Customer" || localStorage.usertype == "Seller"? 
             <Nav.Link href="/ManageUserProfile">
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
                 Manage My Profile
+              </button>
+            </Nav.Link>
+            : null
+            }
+
+            {/* HISTORY: ONLY CUSTOMMER */}
+            {localStorage.usertype == "Customer" ? 
+            <Nav.Link href="/History">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                Order History
               </button>
             </Nav.Link>
             : null
