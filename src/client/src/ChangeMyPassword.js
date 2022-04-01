@@ -65,7 +65,7 @@ export class ChangeMyPassword extends Component {
                 <input id="pas2" class="login-signup-input" 
                     type="password"
                     name="hashedPasswordConfirm"
-                    placeholder="Enter new password"
+                    placeholder="Confirm new password"
                     onChange = {this.changeState}
                 >
                 </input>
