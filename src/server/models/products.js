@@ -11,6 +11,7 @@ var ProductsSchema = new Schema({
     categories: String,
     user : {type: String, required: true}, 
     inUserCart: [],
+    inUserHistory: [],
     // Add user emails array
 });
 

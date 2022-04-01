@@ -134,9 +134,15 @@ app.get('/products/inUserCart', (req, res) => {
     })
 });
 
+app.get('/products/inUserHistory', (req, res) => {
+    ProductsModel.find({ inUserHistory: req.headers.myuserid }, function(err, result){
 
-
-
+        console.log("Products in History of user with id: " + req.headers.myuserid)
+        if(err) throw err;
+        else res.json(result);
+        console.log(result);
+    })
+});
 
 //Api endpoing for creating/updating/deleting products
 app.use('/products', productRouter);
