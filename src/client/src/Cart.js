@@ -58,7 +58,9 @@ export class Cart extends Component {
         //Api call to "Buy"
         const buyItem = (product) => {
             let {_id, name} = product
-            localStorage.setItem("productID", _id)
+            localStorage.setItem("productID", _id);
+
+
             axios.post("http://localhost:9000/products/removeFromCart/"+localStorage.getItem("productID"), {
                 method: "POST",
                 myUserId: localStorage.myUserId
@@ -68,11 +70,25 @@ export class Cart extends Component {
                 } )
                 .catch (err => {
                     window.alert(err)
-                })
-            
+                });
+
+                axios.post("http://localhost:9000/products/AddToHistory/"+localStorage.getItem("productID"), {
+                    method: "POST",
+                    myUserId: localStorage.myUserId
+  
+                    })
+                    .then(response => {
+                        // window.alert(localStorage.email)
+                        
+                    } )
+                    .catch (err => {
+                        window.alert(err)
+                    });
+
             localStorage.removeItem("productID")
-            alert("Product "+product.name+" was purchased with success! Thank you for shopping with Taiga! 😁")
+            alert(product.name+" was purchased with success! Thank you for shopping with Taiga! 😁")
             window.location.reload(false);
+
         }
 
         return (
