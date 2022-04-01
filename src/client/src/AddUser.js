@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './Login.css'
+import './AddUser.css'
 import axios from 'axios'
 
 
-const Login = () => {
+const AddUser = () => {
     
     // for adding a new user
     const [rEmail, setREmail] = useState('');
@@ -46,7 +46,7 @@ const Login = () => {
 
     <div class="main">
         {/* Adds a new user */}
-        <div class="login">
+        <div class="add-user">
             <form onSubmit={handleSubmitregister}>
                 <label for="chk" aria-hidden="true">Add a new user</label>
                 <input 
@@ -55,13 +55,13 @@ const Login = () => {
                     value={rEmail}
                     placeholder="Email"
                     onChange={(e) => setREmail(e.target.value)}
-                    class="login-signup-input" 
+                    class="add-user-input" 
                     required="">
                 </input>
                 <input
                     value={rName}
                     onChange={(e) => setRName(e.target.value)}
-                    class="login-signup-input" 
+                    class="add-user-input" 
                     type="text" 
                     name="txt" 
                     placeholder="Name" r
@@ -70,20 +70,20 @@ const Login = () => {
                 <input 
                     value={rPassword}
                     onChange={(e) => setRPassword(e.target.value)}
-                    class="login-signup-input" 
+                    class="add-user-input" 
                     type="password" 
                     name="pswd" 
                     placeholder="Password" 
                     required="">
                 </input>
-                <select id="options" class = "login-signup-select">
+                <select id="options" class = "add-user-select">
                         <option value={rUserType}>Customer</option>
                         <option value={rUserType}>Seller</option>
                         <option value={rUserType}>Admin</option>
                 </select>
 
-                <button class="login-signup-button">Sign up</button>
-                <div class="register-message">{rMessage ? <p>{rMessage}</p> : null}</div>
+                <button class="add-user-button">Sign up</button>
+                <div class="add-user-message">{rMessage ? <p>{rMessage}</p> : null}</div>
             </form>
         </div>
 
@@ -91,4 +91,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default AddUser;

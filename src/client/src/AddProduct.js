@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Login.css'
+import './AddProduct.css'
 import axios from 'axios'
 
 export class AddProduct extends Component {
@@ -45,32 +45,32 @@ export class AddProduct extends Component {
 
     return (
         //Form for seller to add a product
-        <div class="login">
+        <div class="add-product-table">
             <br></br>
             <h3>Add a product</h3>
             <form onSubmit={this.submitForm}>
-                <input class="login-signup-input" 
+                <input class="add-product-input" 
                     type="text"
                     name="name"
                     placeholder="Name of Product"
                     value = {name}
                     onChange = {this.changeState}>
                 </input>
-                <input class="login-signup-input" 
+                <input class="add-product-input" 
                     type="text"
                     name="price"
                     placeholder="Price"
                     value = {price}
                     onChange = {this.changeState}
                 ></input>
-                <input class="login-signup-input" 
+                <input class="add-product-input" 
                     type="text"
                     name="stock"
                     placeholder="Stock"
                     value = {stock}
                     onChange = {this.changeState}
                 ></input>
-                <select class="login-signup-input" name="categories" value={categories} onChange = {this.changeState}>
+                <select class="add-product-input" name="categories" value={categories} onChange = {this.changeState}>
                     <option value="" disabled>Select Category</option>
                     <option value="Electronics">Electronic</option>
                     <option value="Clothes" selected>Clothes</option>
@@ -79,21 +79,21 @@ export class AddProduct extends Component {
                     <option value="Grocery">Grocery</option>
                     <option value="Toys">Toy</option>
                 </select>
-                <textarea class="login-signup-input" 
+                <textarea class="add-product-input" 
                     type="textarea"
                     name="description"
                     placeholder="Description"
                     value = {description}
                     onChange = {this.changeState}
                 ></textarea>
-                <input class="login-signup-input" 
+                <input class="add-product-input" 
                     type="text"
                     name="image"
                     placeholder="Image URL"
                     value = {image}
                     onChange = {this.changeState}
                 ></input>
-               <button type="submit" class="login-signup-button" id="button">Add product</button>
+               <button type="submit" class="add-product-button" id="button">Add product</button>
             </form>
       </div>
     )
