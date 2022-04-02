@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import './Login.css'
+import './EditProduct.css'
 import axios from 'axios'
 
 
@@ -57,11 +57,11 @@ export class EditProduct extends Component {
     
     return (
         //Form for the seller to edit product
-        <div class="login">
+        <div class="edit-product-table">
             <br></br>
             <h3>Edit a product</h3>
             <form onSubmit={this.submitForm}>
-                <input class="login-signup-input" 
+                <input class="edit-product-input" 
                     type="text"
                     name="name"
                     placeholder="Name of Product"
@@ -69,21 +69,21 @@ export class EditProduct extends Component {
                     onChange = {this.changeState}>
                         
                 </input>
-                <input class="login-signup-input" 
+                <input class="edit-product-input" 
                     type="text"
                     name="price"
                     placeholder="Price"
                     value = {price}
                     onChange = {this.changeState}
                 ></input>
-                <input class="login-signup-input" 
+                <input class="edit-product-input" 
                     type="text"
                     name="stock"
                     placeholder="Stock"
                     value = {stock}
                     onChange = {this.changeState}
                 ></input>
-                <select class="login-signup-input" name="categories" value={localStorage.getItem("productCategory")} onChange = {this.changeState}>
+                <select class="edit-product-input" name="categories" value={localStorage.getItem("productCategory")} onChange = {this.changeState}>
                     <option value="Electronics">Electronic</option>
                     <option value="Clothes" selected>Clothes</option>
                     <option value="Furniture">Furniture</option>
@@ -91,21 +91,21 @@ export class EditProduct extends Component {
                     <option value="Grocery">Grocery</option>
                     <option value="Toys">Toy</option>
                 </select>
-                <textarea class="login-signup-input" 
+                <textarea class="edit-product-input" 
                     type="textarea"
                     name="description"
                     placeholder="Description"
                     value = {description}
                     onChange = {this.changeState}
                 ></textarea>
-                <input class="login-signup-input" 
+                <input class="edit-product-input" 
                     type="text"
                     name="image"
                     placeholder="Image URL"
                     value = {image}
                     onChange = {this.changeState}
                 ></input>
-                <input class="login-signup-input" 
+                <input class="edit-product-input" 
                     type="text"
                     name="user"
                     placeholder="Name of Seller"
@@ -113,7 +113,7 @@ export class EditProduct extends Component {
                     onChange = {this.changeState}>
                 </input>
                 
-                    <button type="submit" class="login-signup-button" id="button" >Edit</button>
+                    <button type="submit" class="edit-product-button" id="button" >Edit</button>
                 
             </form>
       </div>
