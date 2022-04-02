@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Header from './Header';
+import Header from './Common/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SlideShow from './SlideShow';
 import './App.css';
-import Types from './Types';
-import Footer from './Footer';
+import Types from './Common/Types';
+import Footer from './Common/Footer';
 import Login from './Common/Login';
 import {
   BrowserRouter,
@@ -19,17 +19,17 @@ import Bookslist from './ProductLists/Bookslist';
 import Grocerylist from './ProductLists/Grocerylist';
 import Toyslist from './ProductLists/Toyslist';
 import SellerMenu from './SellerMenu';
-import Cart from './Cart';
-import History from './History';
+import Cart from './CustomerOnly/Cart';
+import History from './CustomerOnly/History';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
 import AdminMenu from './AdminMenu';
 import ManageUserProfile from './Common/ManageUserProfile';
 import EditUser from './EditUser';
 import ChangePassword from './ChangePassword';
-import ChangeMyPassword from './ChangeMyPassword';
+import ChangeMyPassword from './CustomerOnly/ChangeMyPassword';
 import AddUser from './AddUser'
-import FilterProducts from './FilterProducts';
+import FilterProducts from './Common/FilterProducts';
 
 
 class App extends Component {

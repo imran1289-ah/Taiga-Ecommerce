@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import './SellerMenu.css'
+import '../SellerMenu.css'
 import Table from 'react-bootstrap/Table';
 import axios from 'axios'
-import './Common/Login.css'
+import '../Common/Login.css'
 import { Nav, NavLink } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
