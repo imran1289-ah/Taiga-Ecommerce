@@ -12,12 +12,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Electronicslist from './Electronicslist';
-import Clotheslist from './Clotheslist';
-import Furniturelist from './Furniturelist';
-import Bookslist from './Bookslist';
-import Grocerylist from './Grocerylist';
-import Toyslist from './Toyslist';
+import Electronicslist from './ProductLists/Electronicslist';
+import Clotheslist from './ProductLists/Clotheslist';
+import Furniturelist from './ProductLists/Furniturelist';
+import Bookslist from './ProductLists/Bookslist';
+import Grocerylist from './ProductLists/Grocerylist';
+import Toyslist from './ProductLists/Toyslist';
 import SellerMenu from './SellerMenu';
 import Cart from './Cart';
 import History from './History';
