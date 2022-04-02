@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../SellerMenu.css'
+import '../SellerOnly/SellerMenu.css'
 import Table from 'react-bootstrap/Table';
 import axios from 'axios'
 import '../Common/Login.css'

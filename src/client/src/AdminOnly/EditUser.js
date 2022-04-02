@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import './Common/Login.css'
+import '../Common/Login.css'
 import axios from 'axios'
 
 
