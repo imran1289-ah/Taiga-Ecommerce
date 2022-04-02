@@ -5,7 +5,7 @@ import SlideShow from './SlideShow';
 import './App.css';
 import Types from './Types';
 import Footer from './Footer';
-import Login from './Login';
+import Login from './Common/Login';
 import {
   BrowserRouter,
   Routes,
@@ -24,7 +24,7 @@ import History from './History';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
 import AdminMenu from './AdminMenu';
-import ManageUserProfile from './ManageUserProfile';
+import ManageUserProfile from './Common/ManageUserProfile';
 import EditUser from './EditUser';
 import ChangePassword from './ChangePassword';
 import ChangeMyPassword from './ChangeMyPassword';
