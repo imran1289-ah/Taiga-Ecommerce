@@ -5,7 +5,7 @@ import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import './Productlist.css';
+import './Electronicslist.css';
 import { Dropdown } from 'react-bootstrap';
 
 
@@ -35,7 +35,8 @@ class Electronicslist extends Component {
               localStorage.setItem("productID", _id)
               axios.post("http://localhost:9000/products/AddtoCart/"+localStorage.getItem("productID"), {
                   method: "POST",
-                  email: localStorage.email
+                  myUserId: localStorage.myUserId
+
                   })
                   .then(response => {
                       // window.alert(localStorage.email)
@@ -66,9 +67,9 @@ class Electronicslist extends Component {
 
                             {product.description}
                         </p>
-                        {localStorage.usertype == "Customer" && !product.inUserCart.includes(localStorage.email)? <button class="login-signup-button" onClick={() => addToCart(product)}>Add To Cart</button>: null}       
-                        {product.inUserCart.includes(localStorage.email)? <h2 class="inCart" >Added to cart ✅</h2>: null}       
-
+                        
+                        {localStorage.usertype == "Customer" && !product.inUserCart.includes(localStorage.myUserId)? <button class="login-signup-button" onClick={() => addToCart(product)}>Add To Cart</button>: null}       
+                        {product.inUserCart.includes(localStorage.myUserId)? <h2 class="inCart" >Added to cart ✅</h2>: null}    
                       </div>
                       </div>
                   }

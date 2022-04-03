@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import './SellerMenu.css'
+import '../SellerOnly/SellerMenu.css'
 import Table from 'react-bootstrap/Table';
 import axios from 'axios'
-import './Login.css'
+import './AdminMenu.css'
 import { Nav, NavLink } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
@@ -87,7 +87,7 @@ export class AdminMenu extends Component {
                                             <td >{user.email}</td>
                                             <td >
                                                 <Link to="/ChangePassword">
-                                                    <button type="submit" class="login-signup-button" onClick={() => saveUserID(user)}>
+                                                    <button type="submit" class="button" onClick={() => saveUserID(user)}>
                                                         Change Password
                                                     </button>
                                                 </Link>
@@ -95,7 +95,7 @@ export class AdminMenu extends Component {
                                             <td>{user.userType}</td>
                                             <td>
                                                  <Link to="/EditUser">
-                                                    <button type="submit" class="login-signup-button" onClick={() => saveUser(user)}>
+                                                    <button type="submit" class="button" onClick={() => saveUser(user)}>
                                                         Edit
                                                     </button>
                                                 </Link>

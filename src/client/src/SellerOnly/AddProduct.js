@@ -1,89 +1,77 @@
-import React, { Component} from 'react'
-import './Login.css'
+import React, { Component } from 'react'
+import './AddProduct.css'
 import axios from 'axios'
 
-
-export class EditProduct extends Component {
+export class AddProduct extends Component {
     
-    //State property which will contain all the information of the product that is being eddited
+    //State property which will contain all the infromation of the added product
     constructor(props) {
       super(props)
     
       this.state = {
-         name:localStorage.getItem("productName"),
-         description:localStorage.getItem("productDescription"),
-         price:localStorage.getItem("productPrice"),
-         image :localStorage.getItem("productImage"),
-         stock:localStorage.getItem("productStock"),
-         categories:localStorage.getItem("productCategory"),
-         user:localStorage.getItem("productUser"),
-         
+         name:"",
+         description: "",
+         price: "",
+         image : "",
+         stock: "",
+         categories: "",
+         user: localStorage.username,
         }
     }
 
-    //Each input is getting updated
+    //Each input is getting updated as seller is adding
     changeState = (event) => {
         this.setState({[event.target.name]: event.target.value})
     }
 
-    //Api call to edit product
-    submitForm = event => {
+    //Api call to add product
+    submitForm = (event) => {
         event.preventDefault() //No page refresh
         console.log(this.state)
-        axios.post("http://localhost:9000/products/update/"+localStorage.getItem("productID"), this.state)
+        axios.post("http://localhost:9000/products/create", this.state)
             .then(res => {
                 console.log(res)
             })
             .catch (err => {
                 console.log(err)
             })
-        
-        alert("Product Sucesfully Updated");
-        localStorage.removeItem("productName");
-        localStorage.removeItem("productDescription");
-        localStorage.removeItem("productPrice");
-        localStorage.removeItem("productImage");
-        localStorage.removeItem("productStock");
-        localStorage.removeItem("productUser");
-        localStorage.removeItem("productCategory");
-        localStorage.removeItem("productID");
-
+        alert("Product has been added");
         document.getElementById('button').disabled = true;
     }
 
 
     render() {
     const {name, description, price, image, stock, categories, user} = this.state
-    
+
     return (
-        //Form for the seller to edit product
-        <div class="login">
+        //Form for seller to add a product
+        <div class="add-product-table">
             <br></br>
-            <h3>Edit a product</h3>
+            <h3>Add a product</h3>
             <form onSubmit={this.submitForm}>
-                <input class="login-signup-input" 
+                <input class="add-product-input" 
                     type="text"
                     name="name"
                     placeholder="Name of Product"
                     value = {name}
                     onChange = {this.changeState}>
-                        
                 </input>
-                <input class="login-signup-input" 
+                <input class="add-product-input" 
                     type="text"
                     name="price"
                     placeholder="Price"
                     value = {price}
                     onChange = {this.changeState}
                 ></input>
-                <input class="login-signup-input" 
+                <input class="add-product-input" 
                     type="text"
                     name="stock"
                     placeholder="Stock"
                     value = {stock}
                     onChange = {this.changeState}
                 ></input>
-                <select class="login-signup-input" name="categories" value={localStorage.getItem("productCategory")} onChange = {this.changeState}>
+                <select class="add-product-input" name="categories" value={categories} onChange = {this.changeState}>
+                    <option value="" disabled>Select Category</option>
                     <option value="Electronics">Electronic</option>
                     <option value="Clothes" selected>Clothes</option>
                     <option value="Furniture">Furniture</option>
@@ -91,34 +79,25 @@ export class EditProduct extends Component {
                     <option value="Grocery">Grocery</option>
                     <option value="Toys">Toy</option>
                 </select>
-                <textarea class="login-signup-input" 
+                <textarea class="add-product-input" 
                     type="textarea"
                     name="description"
                     placeholder="Description"
                     value = {description}
                     onChange = {this.changeState}
                 ></textarea>
-                <input class="login-signup-input" 
+                <input class="add-product-input" 
                     type="text"
                     name="image"
                     placeholder="Image URL"
                     value = {image}
                     onChange = {this.changeState}
                 ></input>
-                <input class="login-signup-input" 
-                    type="text"
-                    name="user"
-                    placeholder="Name of Seller"
-                    value = {user}
-                    onChange = {this.changeState}>
-                </input>
-                
-                    <button type="submit" class="login-signup-button" id="button" >Edit</button>
-                
+               <button type="submit" class="add-product-button" id="button">Add product</button>
             </form>
       </div>
     )
   }
 }
 
-export default EditProduct
+export default AddProduct

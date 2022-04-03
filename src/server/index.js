@@ -125,17 +125,24 @@ app.get('/products/search', (req, res) => {
 });
 
 app.get('/products/inUserCart', (req, res) => {
-    ProductsModel.find({ inUserCart: req.headers.email }, function(err, result){
-        console.log(req.headers.email);
+    ProductsModel.find({ inUserCart: req.headers.myuserid }, function(err, result){
 
-          if(err) throw err;
-          else res.json(result);
-          console.log(result);
+        console.log("Products in cart of user with id: " + req.headers.myuserid)
+        if(err) throw err;
+        else res.json(result);
+        console.log(result);
     })
 });
 
+app.get('/products/inUserHistory', (req, res) => {
+    ProductsModel.find({ inUserHistory: req.headers.myuserid }, function(err, result){
 
-
+        console.log("Products in History of user with id: " + req.headers.myuserid)
+        if(err) throw err;
+        else res.json(result);
+        console.log(result);
+    })
+});
 
 //Api endpoing for creating/updating/deleting products
 app.use('/products', productRouter);

@@ -61,10 +61,39 @@ router.route('/removeFromCart/:id').post((req,res) => {
     ProductModel.findById(req.params.id)
     .then(product => {
 
-        const index = product.inUserCart.indexOf(req.body.email);
+        const index = product.inUserCart.indexOf(req.body.myUserId);
         if (index > -1) {
             product.inUserCart.splice(index, 1); // 2nd parameter means remove one item only
         }
+        product.save()
+            .then(() => console.log("Product removed and was updated in the database"))
+            .catch(error => console.log(error));
+    } )
+    .catch(error => res.json("Error finding product"))
+});
+
+// Remove product from user history
+router.route('/removeFromHistory/:id').post((req,res) => {
+    ProductModel.findById(req.params.id)
+    .then(product => {
+
+        const index = product.inUserHistory.indexOf(req.body.myUserId);
+        if (index > -1) {
+            product.inUserHistory.splice(index, 1); // 2nd parameter means remove one item only
+        }
+        product.save()
+            .then(() => console.log("Product removed from history and was updated in the database"))
+            .catch(error => console.log(error));
+    } )
+    .catch(error => res.json("Error finding product"))
+});
+
+// Add product to user cart
+router.route('/AddtoCart/:id').post((req,res) => {
+    console.log("Adding to cart");
+    ProductModel.findByIdAndUpdate(req.params.id)
+    .then(product => {
+        product.inUserCart.push(req.body.myUserId);
         product.save()
             .then(() => console.log("Product was updated in the database"))
             .catch(error => console.log(error));
@@ -73,14 +102,11 @@ router.route('/removeFromCart/:id').post((req,res) => {
 
 });
 
-// Remove product from user cart
-router.route('/AddtoCart/:id').post((req,res) => {
-    console.log("Adding to cart");
+router.route('/AddtoHistory/:id').post((req,res) => {
+    console.log("Adding to history");
     ProductModel.findByIdAndUpdate(req.params.id)
     .then(product => {
-        product.inUserCart.push(req.body.email);
-
-        
+        product.inUserHistory.push(req.body.myUserId);
         product.save()
             .then(() => console.log("Product was updated in the database"))
             .catch(error => console.log(error));

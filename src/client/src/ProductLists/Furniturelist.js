@@ -5,10 +5,10 @@ import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import './Productlist.css';
+import './Furniturelist.css';
 import { Dropdown } from 'react-bootstrap';
 
-class Toyslist extends Component {
+class Furniturelist extends Component {
   constructor(props) {
     super(props)
   
@@ -16,24 +16,24 @@ class Toyslist extends Component {
       products: [],
     }
   }
-  
-  componentDidMount() {
+ 
+ componentDidMount() {
     axios.get('http://localhost:9000/products/search').then((response) => {
       console.log(response);
       this.setState({ products: response.data });
     });
   }
 
-
   render() {
     const { products } = this.state;
+
             //Api call to add to cart
             const addToCart = (product) => {
               let {_id } = product;
               localStorage.setItem("productID", _id)
               axios.post("http://localhost:9000/products/AddtoCart/"+localStorage.getItem("productID"), {
                   method: "POST",
-                  email: localStorage.email
+                  myUserId: localStorage.myUserId
                   })
                   .then(response => {
                       // window.alert(localStorage.email)
@@ -46,12 +46,12 @@ class Toyslist extends Component {
               localStorage.removeItem("productID")
               alert("Product "+product.name+" was added to the cart with success!")
               window.location.reload(false);
-          }
+            }
 
     return (
       <div className="container">
         {products.map(function (product, index) {
-          if (product.categories == 'Toys') {
+          if (product.categories == 'Furniture') {
             return (
               <div className="box" data-aos="fade">
                 <img src={product.image}></img>
@@ -61,8 +61,9 @@ class Toyslist extends Component {
                   <p className="stock">{product.stock} in stocks</p>
                   <p className ="stock">Product seller : {product.user}</p>
                   <p className="description">{product.description}</p>
-                  {localStorage.usertype == "Customer" && !product.inUserCart.includes(localStorage.email)? <button class="login-signup-button" onClick={() => addToCart(product)}>Add To Cart</button>: null}       
-                  {product.inUserCart.includes(localStorage.email)? <h2 class="inCart" >Added to cart ✅</h2>: null}                  </div>
+                  {localStorage.usertype == "Customer" && !product.inUserCart.includes(localStorage.myUserId)? <button class="login-signup-button" onClick={() => addToCart(product)}>Add To Cart</button>: null}       
+                  {product.inUserCart.includes(localStorage.myUserId)? <h2 class="inCart" >Added to cart ✅</h2>: null}      
+                </div>
               </div>
             );
           }
@@ -72,4 +73,4 @@ class Toyslist extends Component {
   }
 }
  
-export default Toyslist;
+export default Furniturelist;

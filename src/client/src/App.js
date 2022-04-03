@@ -1,32 +1,35 @@
 import React, { Component } from 'react';
-import Header from './Header';
+import Header from './Common/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SlideShow from './SlideShow';
+import SlideShow from './Common/SlideShow';
 import './App.css';
-import Types from './Types';
-import Footer from './Footer';
-import Login from './Login';
+import Types from './Common/Types';
+import Footer from './Common/Footer';
+import Login from './Common/Login';
 import {
   BrowserRouter,
   Routes,
   Route,
   Link
 } from "react-router-dom";
-import Electronicslist from './Electronicslist';
-import Clotheslist from './Clotheslist';
-import Furniturelist from './Furniturelist';
-import Bookslist from './Bookslist';
-import Grocerylist from './Grocerylist';
-import Toyslist from './Toyslist';
-import SellerMenu from './SellerMenu';
-import Cart from './Cart';
-import AddProduct from './AddProduct';
-import EditProduct from './EditProduct';
-import AdminMenu from './AdminMenu';
-import EditUser from './EditUser';
-import ChangePassword from './ChangePassword';
-import AddUser from './AddUser'
-import FilterProducts from './FilterProducts';
+import Electronicslist from './ProductLists/Electronicslist';
+import Clotheslist from './ProductLists/Clotheslist';
+import Furniturelist from './ProductLists/Furniturelist';
+import Bookslist from './ProductLists/Bookslist';
+import Grocerylist from './ProductLists/Grocerylist';
+import Toyslist from './ProductLists/Toyslist';
+import SellerMenu from './SellerOnly/SellerMenu';
+import Cart from './CustomerOnly/Cart';
+import History from './CustomerOnly/History';
+import AddProduct from './SellerOnly/AddProduct';
+import EditProduct from './SellerOnly/EditProduct';
+import AdminMenu from './AdminOnly/AdminMenu';
+import ManageUserProfile from './Common/ManageUserProfile';
+import EditUser from './AdminOnly/EditUser';
+import ChangePassword from './AdminOnly/ChangePassword';
+import ChangeMyPassword from './CustomerOnly/ChangeMyPassword';
+import AddUser from './AdminOnly/AddUser'
+import FilterProducts from './Common/FilterProducts';
 
 
 class App extends Component {
@@ -57,24 +60,30 @@ class App extends Component {
               <>
                 <Header />
                 <SlideShow />
-                <Types />
+                <Types id="Top" />
                 
-                <h1 class="HomePageLists" >Electronics</h1>
+                <h1 id="Electronics" class="HomePageLists" >Electronics </h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Electronicslist />
 
-                <h1 class="HomePageLists" >Clothes</h1>
+                <h1 id="Clothes" class="HomePageLists" >Clothes</h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Clotheslist />
 
-                <h1 class="HomePageLists" >Furniture</h1>
+                <h1 id="Furniture" class="HomePageLists" >Furniture</h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Furniturelist />
 
-                <h1 class="HomePageLists" >Books</h1>
+                <h1 id="Books" class="HomePageLists" >Books</h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Bookslist />
 
-                <h1 class="HomePageLists" >Groceries</h1>
+                <h1 id="Groceries" class="HomePageLists" >Groceries</h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Grocerylist />
 
-                <h1 class="HomePageLists" >Toys</h1>
+                <h1 id="Toys" class="HomePageLists" >Toys</h1>
+                <a href='#top'><h1 class="Top">🔝   </h1></a>
                 <Toyslist />
                 <Footer />
               </>
@@ -160,6 +169,7 @@ class App extends Component {
           
           <Route path="/SellerMenu" element={<><Header/><SellerMenu/></>}></Route>
           <Route path="/Cart" element={<><Header/><Cart/></>}></Route>
+          <Route path="/History" element={<><Header/><History/></>}></Route>
           <Route path="/AddProduct" element={<><Header/><AddProduct/></>}></Route>
           <Route path="/EditProduct/" element={<><Header/><EditProduct/></>}></Route>
 
@@ -169,6 +179,16 @@ class App extends Component {
               <>
                 <Header></Header>
                 <AdminMenu></AdminMenu>
+              </>
+            }
+           ></Route> 
+
+          <Route 
+            path="/ManageUserProfile"
+            element={
+              <>
+                <Header></Header>
+                <ManageUserProfile></ManageUserProfile>
               </>
             }
            ></Route> 
@@ -189,6 +209,16 @@ class App extends Component {
               <>
                 <Header/>
                 <ChangePassword/>
+              </>
+            }>
+          </Route>
+
+          <Route 
+            path="/ChangeMyPassword"
+            element={
+              <>
+                <Header/>
+                <ChangeMyPassword/>
               </>
             }>
           </Route>
