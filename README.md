@@ -36,8 +36,11 @@ Full Stack:
 
 ## Technologies 	:writing_hand:
 - Javascript
-- Node Js
+- MongoDB
+- Express
 - React
+- Node Js
 - CSS
 - Bootstrap
 - HTML
+- Circle CI
