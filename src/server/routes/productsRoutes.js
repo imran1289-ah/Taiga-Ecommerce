@@ -1,120 +1,33 @@
 const express = require('express');
 const router = express.Router();
 const ProductModel = require('../models/products');
+const productsController = require('../controllers/productsController')
 
 //Adds new product into the database
-router.route('/create').post((req,res) => {
-    const name = req.body.name;
-    const description = req.body.description;
-    const price = req.body.price;
-    const image = req.body.image;
-    const stock = req.body.stock;
-    const categories = req.body.categories;
-    const user = req.body.user;
-
-    const NewProduct = new ProductModel({name, description, price, image, stock, categories, user});
-
-
-    NewProduct.save()
-        .then(() => {
-            console.log("Product was sucessful added");
-            res.end();
-        })
-        .catch(error => console.log(error));
-});
+router.post('/create', productsController.createProduct);
 
 //Edit product into the database
-router.route('/update/:id').post((req,res) => {
-    ProductModel.findByIdAndUpdate(req.params.id)
-        .then(product => {
-            product.name = req.body.name
-            product.description = req.body.description
-            product.price = req.body.price
-            product.image =  req.body.image
-            product.stock = req.body.stock
-            product.categories =  req.body.categories
-            product.user =  req.body.user
-
-            product.save()
-                .then(() => {
-                    console.log("Product was updated in the database");
-                    res.end();
-                })
-                .catch(error => console.log(error));
-            
-        } )
-        .catch(error => res.json("Error finding product"))
-});
+router.post('/update/:id', productsController.updateProduct);
 
 //Delete product from the database
-router.route('/delete/:id').delete((req,res) => {
-    ProductModel.findByIdAndDelete(req.params.id)
-        .then(() => {
-            console.log("Product Deleted in the database");
-            res.end();
-        })
-        .catch(error => console.log("Error"));
-})
+router.delete('/delete/:id', productsController.deleteProduct);
 
 // Remove product from user cart
-router.route('/removeFromCart/:id').post((req,res) => {
-    ProductModel.findById(req.params.id)
-    .then(product => {
-
-        const index = product.inUserCart.indexOf(req.body.myUserId);
-        if (index > -1) {
-            product.inUserCart.splice(index, 1); // 2nd parameter means remove one item only
-        }
-        product.save()
-            .then(() => console.log("Product removed and was updated in the database"))
-            .catch(error => console.log(error));
-    } )
-    .catch(error => res.json("Error finding product"))
-});
+router.post('/removeFromCart/:id', productsController.removeFromCart);
 
 // Remove product from user history
-router.route('/removeFromHistory/:id').post((req,res) => {
-    ProductModel.findById(req.params.id)
-    .then(product => {
-
-        const index = product.inUserHistory.indexOf(req.body.myUserId);
-        if (index > -1) {
-            product.inUserHistory.splice(index, 1); // 2nd parameter means remove one item only
-        }
-        product.save()
-            .then(() => console.log("Product removed from history and was updated in the database"))
-            .catch(error => console.log(error));
-    } )
-    .catch(error => res.json("Error finding product"))
-});
+router.post('/removeFromHistory/:id', productsController.removeFromHistory);
 
 // Add product to user cart
-router.route('/AddtoCart/:id').post((req,res) => {
-    console.log("Adding to cart");
-    ProductModel.findByIdAndUpdate(req.params.id)
-    .then(product => {
-        product.inUserCart.push(req.body.myUserId);
-        product.save()
-            .then(() => console.log("Product was updated in the database"))
-            .catch(error => console.log(error));
-    } )
-    .catch(error => res.json("Error finding product"))
+router.post('/AddtoCart/:id', productsController.addToCart);
 
-});
+router.post('/AddtoHistory/:id', productsController.addToHistory);
 
-router.route('/AddtoHistory/:id').post((req,res) => {
-    console.log("Adding to history");
-    ProductModel.findByIdAndUpdate(req.params.id)
-    .then(product => {
-        product.inUserHistory.push(req.body.myUserId);
-        product.save()
-            .then(() => console.log("Product was updated in the database"))
-            .catch(error => console.log(error));
-    } )
-    .catch(error => res.json("Error finding product"))
+//Api endpoint for products
+router.get('/search', productsController.getAllProducts);
 
-});
+router.get('/inUserCart', productsController.getUserCart);
 
-
+router.get('/inUserHistory', productsController.getUserHistory);
 
 module.exports = router;

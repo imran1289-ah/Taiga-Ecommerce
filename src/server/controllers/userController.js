@@ -44,3 +44,58 @@ exports.logoutUser = function (req, res) {
     req.logout();
     res.status(200).end();
 }
+
+exports.deleteUser = function (req, res) {
+    UserModel.findByIdAndDelete(req.params.id)
+        .then(() => {
+            console.log("User Deleted in the database");
+            res.end();
+        })
+        .catch(error => console.log("Error"));
+}
+
+exports.updateUser = function (req, res) {
+    var name;
+    var email;
+    console.log(req.params.email)
+    UserModel.findOneAndUpdate({email: req.params.email})
+        .then(user => {
+            user.email = req.body.email;
+            email = user.email;
+            user.name = req.body.name;
+            name = user.name;
+            user.save()
+                .then(() => {
+                    console.log("User was updated in the database");
+                    res = user;
+                })
+                
+                .catch(error => console.log(error));
+        } )
+        .catch(error => res.json("Error finding user"));   
+}
+
+exports.updatePassword = function (req, res) {
+    UserModel.findOneAndUpdate({email: req.params.email})
+        .then(user => {
+            
+            const saltAndHash = auth.generateNewPassword(req.body.hashedPassword);
+            user.hashedPassword = saltAndHash.hash
+            user.salt = saltAndHash.salt
+            user.save()
+                .then(() => {
+                    console.log("User password was updated in the database");
+                    res.end();
+                })
+                .catch(error => console.log(error)); 
+        } )
+        .catch(error => res.json("Error finding user"))
+}
+
+exports.getCurrentUser = function (req, res) {
+    UserModel.find({email: req.headers.email}, function(err, result){
+        console.log( "legged in user info: " + result);
+          if(err) throw err
+          else res.json(result)
+    })
+}

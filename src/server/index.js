@@ -100,55 +100,18 @@ app.use(passport.session());
 // Register the endpoint routes with the express app
 app.use('/users', userRouter);
 
+//Api endpoing for creating/updating/deleting products
+app.use('/products', productRouter);
+
+//Api endpoint for creating/updating/deleting users
+app.use('/admin', adminRouter);
+
 app.get('/', (req, res) => {
     res.send('Hello world from server!');
 });
 app.get('/testAPI', (req, res) => {
     res.send('Test from server - connection succesful!');
 });
-
-//Api endpoint for users
-app.get('/users/search', (req, res) => {
-    UserModel.find({email: req.headers.email}, function(err, result){
-        console.log( "legged in user info: " + result);
-          if(err) throw err
-          else res.json(result)
-    })
-});
-
-//Api endpoint for products
-app.get('/products/search', (req, res) => {
-    ProductsModel.find({}, function(err, result){
-          if(err) throw err
-          else res.json(result)
-    })
-});
-
-app.get('/products/inUserCart', (req, res) => {
-    ProductsModel.find({ inUserCart: req.headers.myuserid }, function(err, result){
-
-        console.log("Products in cart of user with id: " + req.headers.myuserid)
-        if(err) throw err;
-        else res.json(result);
-        console.log(result);
-    })
-});
-
-app.get('/products/inUserHistory', (req, res) => {
-    ProductsModel.find({ inUserHistory: req.headers.myuserid }, function(err, result){
-
-        console.log("Products in History of user with id: " + req.headers.myuserid)
-        if(err) throw err;
-        else res.json(result);
-        console.log(result);
-    })
-});
-
-//Api endpoing for creating/updating/deleting products
-app.use('/products', productRouter);
-
-//Api endpoint for creating/updating/deleting users
-app.use('/admin', adminRouter);
 
 app.listen(port, () => {
     console.log('Taiga server listening on port ' + port + ' with environment set to ' + env);

@@ -1,68 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const UserModel = require('../models/user');
-const auth = require('../auth');
+const adminController = require('../controllers/adminController');
 
 //Search all the user's in the database
-router.route('/search').get((req, res) => {
-    UserModel.find({},
-        function(err, result){
-            if(err) throw err
-            else res.json(result)
-    })
-})
+router.get('/search', adminController.findAllUsers);
 
 //Ban a user
-router.route('/ban/:id').delete((req,res) => {
-    UserModel.findByIdAndDelete(req.params.id)
-        .then(() => {
-            console.log("User Deleted in the database");
-            res.end();
-        })
-        .catch(error => console.log("Error"));
-})
+router.delete('/ban/:id', adminController.banUser);
 
 //Update user's information
-router.route('/update/:id').post((req,res) => {
-    UserModel.findByIdAndUpdate(req.params.id)
-        .then(user => {
-            user.name = req.body.name
-            user.email = req.body.email
-            user.userType = req.body.userType
-            
-            user.save()
-                .then(() => {
-                    console.log("User was updated in the database");
-                    res.end();
-                })
-                .catch(error => console.log(error));
-            
-        } )
-        .catch(error => res.json("Error finding user"))
-});
-
+router.post('/update/:id', adminController.updateUser);
 
 //Update user's password
-router.route('/updatePassword/:id').post((req,res) => {
-    UserModel.findByIdAndUpdate(req.params.id)
-        .then(user => {
-            
-            const saltAndHash = auth.generateNewPassword(req.body.hashedPassword);
-            user.hashedPassword = saltAndHash.hash
-            user.salt = saltAndHash.salt
-            
-            user.save()
-                .then(() => {
-                    console.log("User password was updated in the database");
-                    res.end();
-                })
-                .catch(error => console.log(error));
-            
-        } )
-        .catch(error => res.json("Error finding user"))
-});
-
-
-
+router.post('/updatePassword/:id', adminController.updatePassword);
 
 module.exports = router;
