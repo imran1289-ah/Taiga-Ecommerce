@@ -12,42 +12,42 @@ const auth = require('../auth');
 // Returns 201 on success
 // Returns 400 on invalid request body, response body includes errors
 // Returns 500 on other errors
-router.post('/register', 
-    body('email').custom(value => {
-        // Custom email validator checks that a user with the supplied email doesn't already exist
-        return UserModel.findOne({email: sanitize(value)}).then(user => {
-            if (user) {
-                return Promise.reject("Email already in use.");
-            }
-        });
-    }),
-    body('name').exists(),
-    body('password').exists(),
-    body('userType').exists(),
-    userController.registerUser);
+router.post('/register',
+  body('email').custom(value => {
+    // Custom email validator checks that a user with the supplied email doesn't already exist
+    return UserModel.findOne({ email: sanitize(value) }).then(user => {
+      if (user) {
+        return Promise.reject('Email already in use.');
+      }
+    });
+  }),
+  body('name').exists(),
+  body('password').exists(),
+  body('userType').exists(),
+  userController.registerUser);
 
 // Login to existing account - POST {email, password}
 // Returns 200 on success
 // Returns 400 on invalid request body
 // Returns 401 on invalid credentials
-router.post('/login', 
-    passport.authenticate('local'), 
-    userController.loginSuccess);
+router.post('/login',
+  passport.authenticate('local'),
+  userController.loginSuccess);
 
 // Logout endpoint
 // Returns 200 on success
 router.get('/logout', auth.requireLoggedIn, userController.logoutUser);
 
-//Delete a user
+// Delete a user
 router.delete('/ban/:id', userController.deleteUser);
 
-//Update user's information
+// Update user's information
 router.post('/update/:email', userController.updateUser);
 
-//Update user's password
+// Update user's password
 router.post('/updatePassword/:id', userController.updatePassword);
 
-//Api endpoint for users
+// Api endpoint for users
 router.get('/search', userController.getCurrentUser);
 
 module.exports = router;
