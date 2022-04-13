@@ -18,6 +18,7 @@
     "mongo-sanitize": "^1.1.0",
     "mongoose": "^6.2.1",
     "passport": "^0.5.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "semistandard": "^16.0.1"
   }
 }
