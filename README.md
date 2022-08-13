@@ -12,27 +12,24 @@ Since 2020, the world has been hit with a global pandemic, known as Covid-19. Th
 
 ## Team Members :busts_in_silhouette:
 - Imran Ahmed (GitHub: imran1289-ah)
-- Julian Aloise (GitHub: JAloise)
 - Michael Djabauri (GitHub: MichaelDjab)
 - Matthew Faigan (GitHub: Iwuh)
-- Sabari Krishna Orakkan (GitHub: SKrishna791)
-- Siming Shen (GitHub: SimingShen321)
 - Zi Hao Tan (GitHub: ZiHao-Tan)
 
 ## Roles :computer:
 
 Frontend:
-- Siming Shen
+- Imran Ahmed
+- Michael Djabauri
+- Zi Hao Tan
 
 Backend:
 - Matthew Faigan
-- Sabari Krishna Orakkan
-
-Full Stack:
 - Imran Ahmed
-- Julian Aloise
 - Michael Djabauri
-- Zi Hao Tan
+
+
+
 
 ## Technologies 	:writing_hand:
 - Javascript
