@@ -41,3 +41,11 @@ Backend:
 - Bootstrap
 - HTML
 - Circle CI
+
+#Screenshots of the app
+![image](https://user-images.githubusercontent.com/77070862/185984807-9960512f-03f7-4936-9b6b-8d972c86c1fd.png)
+![image](https://user-images.githubusercontent.com/77070862/185984906-fe1905fe-c5f1-4c21-9dde-9b8f036048b7.png)
+![image](https://user-images.githubusercontent.com/77070862/185985043-e3543812-b5be-4db5-8685-18b9f0a0565b.png)
+![image](https://user-images.githubusercontent.com/77070862/185985087-b3ce19e4-a232-4404-81d4-2186dde7ddee.png)
+
+
